@@ -1,21 +1,28 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
 
-import './myFirst.scss';
+import Classes from './App.css';
+import SCSS from './myFirst.scss';
+
+import {
+    CheckBox
+} from './components/UI/';
 
 class App extends Component {
     render() {
         return (
-            <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    <h1 className="App-title">Welcome to React</h1>
+            <div className={Classes.App}>
+                <header className={Classes.AppHeader}>
+                    <img src={logo} className={Classes.AppLogo} alt="logo"/>
+                    <h1 className={Classes.AppTitle}>Welcome to React</h1>
                 </header>
-                <p className="App-intro">
+                <p className={Classes.AppIntro}>
                     To get started, edit <code>src/App.js</code> and save to reload.
                 </p>
-                <p className="text-color">afgsdgfs</p>
+                <p className={SCSS.TextColor}>
+                    <h3>My React UI [FLAT]</h3>
+                    <CheckBox/>
+                </p>
             </div>
         );
     }
