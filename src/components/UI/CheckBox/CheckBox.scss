@@ -1,20 +1,51 @@
-.Checkmark{
-    display:inline-block;
+$darkBlue : #405b78;
 
-    &:after{
-        /*Add another block-level blank space*/
-        content: '';
-        display: block;
+$size: 20px;
+$borderWidth: 3px;
 
-        /*Make it a small rectangle so the border will create an L-shape*/
-        width: 3px;
-        height: 6px;
+.CheckBox {
+    cursor: pointer;
+    line-height: 9px;
 
-        /*Add a white border on the bottom and left, creating that 'L' */
-        border: solid #000;
-        border-width: 0 2px 2px 0;
+    .Label {
+        padding-top: 7px;
+        display: inline-block;
+        vertical-align: top;
+    }
 
-        /*Rotate the L 45 degrees to turn it into a checkmark*/
-        transform: rotate(45deg);
+    .Box {
+        color: $darkBlue;
+        border: $borderWidth solid $darkBlue;
+        width: $size;
+        height: $size;
+
+        display: inline-block;
+        position: relative;
+        box-sizing: border-box;
+        margin-right: 5px;
+
+        i,
+        input[type=checkbox] {
+            display: none;
+        }
+    }
+
+
+    .Checked {
+        background-color: $darkBlue;
+        color: white;
+        text-shadow: 0px 2px 0px #2f435b;
+
+        i {
+            display: block;
+            height: 100%;
+            width: $size - $borderWidth * 2;
+            line-height: $size - $borderWidth * 2 + 1;
+            font-size: $size - 8px;
+            box-sizing: border-box;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
     }
 }

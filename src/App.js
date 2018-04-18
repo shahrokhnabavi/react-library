@@ -19,10 +19,11 @@ class App extends Component {
                 <p className={Classes.AppIntro}>
                     To get started, edit <code>src/App.js</code> and save to reload.
                 </p>
-                <p className={SCSS.TextColor}>
-                    <h3>My React UI [FLAT]</h3>
-                    <CheckBox/>
-                </p>
+                <div>
+                    <h3 className={SCSS.TextColor}>My React UI [FLAT]</h3>
+
+                    <CheckBox data={{'test':10}}>I am agree.</CheckBox>
+                </div>
             </div>
         );
     }
