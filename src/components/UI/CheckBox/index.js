@@ -13,9 +13,16 @@ import Input from '../Input/';
  *      value="12"
  *      data={{'test':10}}
  *      checked
+ *      captionPos="before"
+ *      style={
+ *          {
+ *              box: { width: '200px' },
+ *              caption: { color: 'red' },
+ *              tick: { top: '20px' }
+ *          }
+ *      }
  *      onChange={ e => {console.log("From App Change: " + e.element.value);} }
  *      onClick={ e => {console.log("From App Clicked");} }
- *      captionPos="before"
  *  >I am agree</CheckBox>
  * ```
  */
@@ -46,6 +53,7 @@ class CheckBox extends React.Component {
             readOnly,
             data,
             onClick,
+            style,
         } = this.props;
 
         const styleCheckBox = [Classes.Box],
@@ -71,7 +79,7 @@ class CheckBox extends React.Component {
         }
 
         const INPUT = (
-            <div className={styleCheckBox.join(' ')}>
+            <div className={styleCheckBox.join(' ')} style={style.box}>
                 <Input
                     type="checkbox"
                     extraAttribute={extraAttribute}
@@ -80,10 +88,10 @@ class CheckBox extends React.Component {
                     input={this.getInput}
                     data={data}
                 />
-                <i className="fas fa-check"></i>
+                <i className="fas fa-check" style={style.tick}></i>
             </div>
         );
-        const LABEL = <span className={Classes.Label}>{this.props.children}</span>;
+        const LABEL = <span className={Classes.Label} style={style.caption}>{this.props.children}</span>;
 
         return (
             <label className={styleComponent.join(' ')}>

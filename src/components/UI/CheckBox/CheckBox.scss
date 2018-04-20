@@ -44,11 +44,14 @@ $borderWidth: 3px;
             height: 100%;
             width: $size - $borderWidth * 2;
             line-height: $size - $borderWidth * 2 + 1;
-            font-size: $size - 8px;
+            font-size: $size - 10px;
             box-sizing: border-box;
             position: absolute;
             top: 0;
             left: 0;
+            right: 0;
+            margin: 0 auto;
+            transition: all .2s;
         }
     }
 }
@@ -64,5 +67,11 @@ $borderWidth: 3px;
     span {
         color: $disabledColor;
         text-shadow: $disabledTextShadow;
+    }
+}
+
+.CheckBox:hover{
+    i{
+        transform: scale(1.3);
     }
 }

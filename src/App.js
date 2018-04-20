@@ -27,7 +27,19 @@ class App extends Component {
                         name="inputName"
                         value="12"
                         data={{'test':10}}
-                        // disabled
+                        style={
+                            {
+                                box: {
+                                    width: '200px'
+                                },
+                                caption: {
+                                    color: 'red'
+                                },
+                                tick: {
+                                    top: '20px'
+                                }
+                            }
+                        }
                         dis
                         checked
                         onChange={ e => {console.log("From App Change: " + e.element.value);} }
