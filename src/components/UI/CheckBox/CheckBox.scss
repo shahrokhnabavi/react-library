@@ -1,4 +1,8 @@
-$darkBlue : #405b78;
+$darkBlue: #405b78;
+$tickTextShadow: 0 2px 0 #2f435b;
+$lightBlue: #7292b1;
+$disabledColor: #cecece;
+$disabledTextShadow: 0 1px 0 rgba(0,0,0, 0.5);
 
 $size: 20px;
 $borderWidth: 3px;
@@ -8,9 +12,10 @@ $borderWidth: 3px;
     line-height: 9px;
 
     .Label {
-        padding-top: 7px;
+        padding-top: 6px;
         display: inline-block;
         vertical-align: top;
+        margin: 0 5px;
     }
 
     .Box {
@@ -22,7 +27,6 @@ $borderWidth: 3px;
         display: inline-block;
         position: relative;
         box-sizing: border-box;
-        margin-right: 5px;
 
         i,
         input[type=checkbox] {
@@ -30,11 +34,10 @@ $borderWidth: 3px;
         }
     }
 
-
     .Checked {
         background-color: $darkBlue;
         color: white;
-        text-shadow: 0px 2px 0px #2f435b;
+        text-shadow: $tickTextShadow;
 
         i {
             display: block;
@@ -47,5 +50,19 @@ $borderWidth: 3px;
             top: 0;
             left: 0;
         }
+    }
+}
+
+.Disable {
+    cursor: not-allowed;
+
+    i {
+        color: $lightBlue;
+        text-shadow: none;
+    }
+
+    span {
+        color: $disabledColor;
+        text-shadow: $disabledTextShadow;
     }
 }

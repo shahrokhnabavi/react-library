@@ -1,84 +1,131 @@
 import React from 'react';
-//react-component/checkbox/blob/master/src/Checkbox.jsx
-//import PropType from 'prop-types';
+import PropType from 'prop-types';
 
 import Classes from './CheckBox.scss';
+import Input from '../Input/';
 
+/**
+ * Usage Example:
+ * ```
+ * <CheckBox
+ *      id="input-id"
+ *      name="inputName"
+ *      value="12"
+ *      data={{'test':10}}
+ *      checked
+ *      onChange={ e => {console.log("From App Change: " + e.element.value);} }
+ *      onClick={ e => {console.log("From App Clicked");} }
+ *      captionPos="before"
+ *  >I am agree</CheckBox>
+ * ```
+ */
 class CheckBox extends React.Component {
     /*
-        captionPos = 'after',
         styling = {
             color: 'red',
             borderSize: '3px',
             size: '20px'
         },
     */
-    state = {
-        isCheck: false
-    };
+
+    constructor( props ) {
+        super(props);
+
+        this.state = {
+            isCheck: 'checked' in props
+        };
+    }
 
     render() {
         const {
-            className, // add this to parent of form elements
-            style, // add this to parent of form elements
-            name, // add this to parent of form elements
-            id, // add this to parent of form elements
-            type,  // add this to parent of form elements
+            captionPos,
+            id,
+            name,
+            value,
             disabled,
             readOnly,
+            data,
             onClick,
-            onFocus,
-            onBlur,
-            autoFocus,
-            value,
-            data, // object data={'newData':10}
-            isChecked,
         } = this.props;
 
+        const styleCheckBox = [Classes.Box],
+            styleComponent = [Classes.CheckBox],
+            extraAttribute = {
+                defaultChecked: this.state.isCheck,
+                name: name,
+                value: value,
+                id: id
+            };
 
-        const dataProps = Object.keys(data).reduce((prev, key) => {
-            prev['data-' + key] = data[key];
-            return prev;
-        }, {});
-
-        const myClass = [ className, Classes.Box ];
-        if( this.state.isCheck ){
-            myClass.push(Classes.Checked);
+        if ( this.state.isCheck ) {
+            styleCheckBox.push(Classes.Checked);
         }
-        console.log(myClass);
+
+        if ( disabled ) {
+            extraAttribute['disabled'] = disabled;
+            styleComponent.push(Classes.Disable);
+        }
+
+        if ( readOnly ) {
+            extraAttribute['readOnly'] = readOnly;
+        }
+
+        const INPUT = (
+            <div className={styleCheckBox.join(' ')}>
+                <Input
+                    type="checkbox"
+                    extraAttribute={extraAttribute}
+                    handleClick={onClick}
+                    handleChange={this.checkBoxChange}
+                    input={this.getInput}
+                    data={data}
+                />
+                <i className="fas fa-check"></i>
+            </div>
+        );
+        const LABEL = <span className={Classes.Label}>{this.props.children}</span>;
 
         return (
-            <label className={Classes.CheckBox}>
-                <div className={myClass.join(' ')}>
-                    <input
-                        type="checkbox"
-                        name="sdfsd"
-                        defaultChecked
-                        value="ss"
-                        {...dataProps}
-                        onClick={this.checkBoxClicked}
-                    />
-                    <i className="fas fa-check"></i>
-                </div>
-                <span className={Classes.Label}>{this.props.children}</span>
+            <label className={styleComponent.join(' ')}>
+                {captionPos === 'before' ? LABEL : null}
+                {INPUT}
+                {captionPos === 'after' ? LABEL : null}
             </label>
         );
     }
 
-    checkBoxClicked = (e) => {
-        console.log(e.target);
+    checkBoxChange = ( e ) => {
         const isCheck = this.state.isCheck;
-        this.setState({isCheck: !isCheck});
+        this.setState({ isCheck: !isCheck });
+
+        this.props.onChange({
+            element: e.target,
+            isCheck: !isCheck,
+        })
     };
-};
+
+    getInput = (node) => {
+        this.input = node;
+    };
+}
 
 CheckBox.propTypes = {
-    //type: PropType.string.isRequired
+    id: PropType.string,
+    name: PropType.string.isRequired,
+    value: PropType.any,
+    data: PropType.object,
+    checked: PropType.bool,
+    disabled: PropType.bool,
+    readOnly: PropType.bool,
+    captionPos: PropType.oneOf(['before', 'none', 'after']),
+    onChange: PropType.func,
+    onClick: PropType.func,
 };
 
 CheckBox.defaultProps = {
-    //tpye: "Susscess"
-    className: ''
+    captionPos: 'after',
+    onClick: () => console.log("Input is clicked"),
+    onChange: () => console.log("Input is changed"),
 };
 
 export default CheckBox;

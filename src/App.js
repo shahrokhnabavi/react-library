@@ -22,7 +22,18 @@ class App extends Component {
                 <div>
                     <h3 className={SCSS.TextColor}>My React UI [FLAT]</h3>
 
-                    <CheckBox data={{'test':10}}>I am agree.</CheckBox>
+                    <CheckBox
+                        id="input-id"
+                        name="inputName"
+                        value="12"
+                        data={{'test':10}}
+                        // disabled
+                        dis
+                        checked
+                        onChange={ e => {console.log("From App Change: " + e.element.value);} }
+                        onClick={ e => {console.log("From App Clicked");} }
+                        captionPos="after"
+                    >I am agree.</CheckBox>
                 </div>
             </div>
         );
