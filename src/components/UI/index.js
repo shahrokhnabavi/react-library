@@ -1,5 +1,7 @@
 import CheckBox from './CheckBox/';
+import Ripple from './Ripple/';
 
 export {
-    CheckBox
+    CheckBox,
+    Ripple
 }

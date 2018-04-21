@@ -1,52 +1,32 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 
 import Classes from './App.css';
-import SCSS from './myFirst.scss';
 
 import {
     CheckBox
 } from './components/UI/';
+import ClickEffect from './components/ClickEffect/';
 
 class App extends Component {
     render() {
         return (
             <div className={Classes.App}>
-                <header className={Classes.AppHeader}>
-                    <img src={logo} className={Classes.AppLogo} alt="logo"/>
-                    <h1 className={Classes.AppTitle}>Welcome to React</h1>
-                </header>
-                <p className={Classes.AppIntro}>
-                    To get started, edit <code>src/App.js</code> and save to reload.
-                </p>
-                <div>
-                    <h3 className={SCSS.TextColor}>My React UI [FLAT]</h3>
+                <h3>My React UI [FLAT]</h3>
 
-                    <CheckBox
-                        id="input-id"
-                        name="inputName"
-                        value="12"
-                        data={{'test':10}}
-                        style={
-                            {
-                                box: {
-                                    width: '200px'
-                                },
-                                caption: {
-                                    color: 'red'
-                                },
-                                tick: {
-                                    top: '20px'
-                                }
-                            }
-                        }
-                        dis
-                        checked
-                        onChange={ e => {console.log("From App Change: " + e.element.value);} }
-                        onClick={ e => {console.log("From App Clicked");} }
-                        captionPos="after"
-                    >I am agree.</CheckBox>
-                </div>
+                <CheckBox name="ex1"/><br/>
+                <CheckBox name="ex2" captionPos="before">Caption Before</CheckBox><br />
+                <CheckBox id="input-id" name="ex3" value="12"
+                          captionPos="after"
+                          onChange={ e => {console.log("From App Change: " + e.element.value);} }
+                          onClick={ e => {console.log("From App Clicked");} }
+                >Caption After.</CheckBox>
+                <br />
+                <CheckBox name="ex4" checked>Default Checked</CheckBox><br />
+                <CheckBox name="ex5" disabled>Disable Unchecked</CheckBox><br />
+                <CheckBox name="ex6" disabled checked>Disable Checked</CheckBox><br />
+                
+                <hr />
+                <ClickEffect />
             </div>
         );
     }

@@ -27,14 +27,6 @@ import Input from '../Input/';
  * ```
  */
 class CheckBox extends React.Component {
-    /*
-        styling = {
-            color: 'red',
-            borderSize: '3px',
-            size: '20px'
-        },
-    */
-
     constructor( props ) {
         super(props);
 
@@ -126,12 +118,14 @@ CheckBox.propTypes = {
     disabled: PropType.bool,
     readOnly: PropType.bool,
     captionPos: PropType.oneOf(['before', 'none', 'after']),
+    style: PropType.object,
     onChange: PropType.func,
     onClick: PropType.func,
 };
 
 CheckBox.defaultProps = {
     captionPos: 'after',
+    style: { box:{} , tick: {} , caption: {} },
     onClick: () => console.log("Input is clicked"),
     onChange: () => console.log("Input is changed"),
 };
