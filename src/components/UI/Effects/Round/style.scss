@@ -1,0 +1,72 @@
+.Round {
+    position: relative;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.Round:before {
+    content: '';
+    position: absolute;
+
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 100%;
+    box-sizing: border-box;
+    opacity: 0;
+    visibility: hidden;
+    display: inline-block;
+}
+
+.BgZoomIn:before {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.BgZoomIn.Click:before {
+    animation: active 0.5s;
+}
+
+.BorderZoomIn:before {
+    width: 60px;
+    height: 60px;
+    border: 2px solid rgba(255, 255, 255, .3);
+}
+.BorderZoomIn.Click:before {
+    animation: active-border 0.5s;
+}
+
+@keyframes active {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+        visibility: hidden;
+    }
+    100% {
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+        visibility: visible;
+    }
+}
+@keyframes active-border {
+    0% {
+        width: 30px;
+        height: 30px;
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+        visibility: hidden;
+    }
+}

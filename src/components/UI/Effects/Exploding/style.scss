@@ -1,0 +1,85 @@
+$scale: 3.6;
+$size: 50px;
+$animTime: 400ms;
+
+.Button {
+    display: inline-block;
+    border-radius: 50%;
+    width: $size;
+    height: $size;
+    border: none;
+    background-color: transparent;
+    font-size: $size;
+    color: #A2122F;
+    cursor: pointer;
+    position: relative;
+    transition-property: color, transform;
+    transition-duration: 150ms;
+    transition-timing-function: cubic-bezier(0.420, 0.000, 0.580, 1.000);
+}
+
+.Button:hover,
+.Button:focus {
+    color: #FD6E8A;
+}
+
+.Button.isToggled {
+    color: #A2122F;
+}
+
+.Button:focus {
+    outline: none;
+    transform: scale(0.92);
+}
+
+.Button::before,
+.Button::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    background-image:
+            linear-gradient(to top   , rgba(255,255,255,0) 0%, currentColor 90%, rgba(255,255,255,0) 100%),
+            linear-gradient(to right , rgba(255,255,255,0) 0%, currentColor 90%, rgba(255,255,255,0) 100%),
+            linear-gradient(to bottom, rgba(255,255,255,0) 0%, currentColor 90%, rgba(255,255,255,0) 100%),
+            linear-gradient(to left  , rgba(255,255,255,0) 0%, currentColor 90%, rgba(255,255,255,0) 100%);
+    background-repeat: no-repeat;
+    background-position:
+            center top,
+            right center,
+            center bottom,
+            left center;
+    background-size:
+            1px 20px,
+            20px 1px,
+            1px 20px,
+            20px 1px;
+    opacity: 0;
+}
+
+.Button::after {
+    transform: rotate(45deg);
+}
+
+.Button.isActive::before {
+    animation: explode1 $animTime cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+
+.Button.isActive::after {
+    animation: explode2 $animTime cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+
+@keyframes explode1 {
+    0%   { opacity: 1; transform: scale(0.6) }
+    60%  { opacity: 0.8; }
+    100% { opacity: 0; transform: scale($scale) }
+}
+
+@keyframes explode2 {
+    0%   { opacity: 1; transform: scale(0.6) rotate(45deg) }
+    60%  { opacity: 0.8; }
+    100% { opacity: 0; transform: scale($scale) rotate(45deg) }
+}

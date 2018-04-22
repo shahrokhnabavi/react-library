@@ -5,7 +5,7 @@ import Classes from './App.css';
 import {
     CheckBox
 } from './components/UI/';
-import ClickEffect from './components/ClickEffect/';
+import {Round} from './components/UI/Effects/';
 
 class App extends Component {
     render() {
@@ -26,7 +26,7 @@ class App extends Component {
                 <CheckBox name="ex6" disabled checked>Disable Checked</CheckBox><br />
                 
                 <hr />
-                <ClickEffect />
+
             </div>
         );
     }
