@@ -3,15 +3,21 @@ import React, { Component } from 'react';
 import Classes from './App.css';
 
 import {
-    CheckBox
+    CheckBox,
+    Overlay
 } from './components/UI/';
-import {Round} from './components/UI/Effects/';
 
 class App extends Component {
+    state = {
+        show: false
+    };
+
     render() {
         return (
             <div className={Classes.App}>
-                <h3>My React UI [FLAT]</h3>
+                <h3>
+                    My React UI [FLAT]
+                </h3>
 
                 <CheckBox name="ex1"/><br/>
                 <CheckBox name="ex2" captionPos="before">Caption Before</CheckBox><br />

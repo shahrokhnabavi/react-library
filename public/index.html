@@ -8,13 +8,6 @@
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
           integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
-
-    <style>
-        body {
-            background-color: red;
-        }
-    </style>
-
     <title>React UI component</title>
 </head>
 <body>
@@ -22,5 +15,137 @@
     You need to enable JavaScript to run this app.
 </noscript>
 <div id="root"></div>
+
+
+<div class='bg'>
+    <div class='todo'>
+        <div class="oppener">
+                <span class="button-overlay">
+                <button id="open_todo"><i class="fa fa-plus"></i>
+                </button></span>
+        </div>
+        <div id="overlay"></div>
+        <div id="card-main">
+
+            <button id='close-icon'><span class="close" title="Close">&times;</span></button>
+
+            <div class='card-content'>
+
+                <div class='test'>
+                    <label>Task</label>
+                    <input id='title' type="text" autocomplete="off" spellcheck="false" maxlength="10"
+                           placeholder="e.g. Lunch, Meeting, Party..">
+                    <span data-count='title' class='textCounter'></span>
+                    <span class='notice'></span>
+                </div>
+                <div class='test'>
+                    <label>Place</label>
+                    <input id='location' type="text" maxlength="10" placeholder="e.g. Home, Supermarket, Library..">
+                    <span data-count='location' class='textCounter'></span>
+                    <span class='notice'></span>
+                </div>
+
+                <div class='test'>
+                    <label>Note</label>
+                    <input id='description' type="text" maxlength="50" placeholder="e.g. hangout with dudes..">
+                    <span data-count='description' class='textCounter'></span>
+                </div>
+            </div>
+            <div class='card-content02'>
+                <div class='set-priority'>
+                    <h3>Set Time</h3>
+                    <input type='time'>
+                </div>
+
+
+                <div class='set-priority'>
+                    <h3>Set date</h3>
+                    <input id='datepicker' placeholder='dd/mm/yyyy' readonly>
+                </div>
+
+                <div class='set-priority'>
+                    <h3>Notify Me</h3>
+
+                    <input id="tmp" type="checkbox">
+                    <label for="tmp" class="notification">
+                        <span class="left"><i class="fa fa-bell-o" aria-hidden="true"></i></span>
+                        <span class="right"><i class="fa fa-bell-slash-o" aria-hidden="true"></i></span>
+                    </label>
+
+                </div>
+            </div>
+            <button id='submit' role="button"><i class="fa fa-check"></i>
+                <span class='ripple'></span>
+            </button>
+
+        </div>
+
+        <div class="head">
+            <div class="head-overlay"></div>
+            <div class="search-cont">
+                <button class="icon"><span class='ripple'></span></button>
+                <input type="search" id="search" maxlength="20" disabled='disabled' placeholder="No tasks so far">
+            </div>
+            <div class="date-container">
+                <span class='t-day'></span>
+                <span class="fulldate">
+                    <span class="day"></span>
+                    <span class="date"></span>
+                    <span class="timing"></span>
+                    </span>
+            </div>
+            <div class='task-info'>
+                <span class='counter'>No Tasks Pending</span>
+            </div>
+        </div>
+        <div class="list-container">
+            <div class="pre-loading">
+                <div class='simulate-container'>
+                    <div class="simulatepost">
+                        <div class="circle"></div>
+
+                        <div class="right-side">
+                            <div class="top-line"></div>
+                            <div class="center-line"></div>
+                            <div class="bottom-line"></div>
+                        </div>
+                    </div>
+                    <div class="sp_02"></div>
+                    <div class="sp_03"></div>
+                    <div class="sp_04"></div>
+                    <div class="sp_05"></div>
+                </div>
+                <div class="main-cont">
+                    <i class="fa fa-signal"></i>
+                    <h1>No tasks for today</h1>
+                    <h3>Enjoy your <span class='wel-day'></span></h3>
+                </div>
+            </div>
+            <ul class="list">
+
+            </ul>
+        </div>
+        <div class="main-message">
+            <div class="message">
+                <h3>Delete Task?</h3>
+                <p></p>
+            </div>
+            <div class="answer">
+                <button id='no'>Discard</button>
+                <button id='yes'>Confirm</button>
+
+            </div>
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+            </svg>
+
+        </div>
+    </div>
+</div>
+<div class='credit-list'>
+</div>
+<button class='list-order'><i class="fa fa-ellipsis-h"></i><span class='ripple'></span></button>
+
+
 </body>
 </html>
