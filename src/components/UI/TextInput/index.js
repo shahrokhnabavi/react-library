@@ -1,25 +1,67 @@
 import React from 'react';
-//import PropType from 'prop-types';
+import PropType from 'prop-types';
 
-//import Classes from './style.scss';
+import Classes from './style.scss';
 
+/**
+ * Usage Example:
+ * ```
+ * <TextInput
+ *      name="username"
+ *      placeholder="enter a valid username..."
+ *      label="Unique Username"
+ * />
+ * ```
+ */
 const TextInput = props => {
+
+    const { name, maxLength, placeholder, label } = props;
+
+    const focusHandler = event => {
+        const input = event.target,
+            label = input.previousElementSibling;
+
+        if (input.value === '') {
+            label.classList.add( Classes.Effect );
+        }
+    };
+
+    const blurHandler = event => {
+        const input = event.target,
+            label = input.previousElementSibling;
+
+        input.value = input.value.trim();
+        if (input.value === '') {
+            label.classList.remove( Classes.Effect );
+        } else {
+            label.classList.add( Classes.Effect );
+        }
+    };
+
     return (
-        <div className="test">
-            <label>Place</label>
-            <input id='location' type="text" maxlength="10" placeholder="e.g. Home, Supermarket, Library.."/>
-            <span data-count="location" className="textCounter"/>
-            <span className="notice" />
+        <div className={Classes.TextInput}>
+            <label for={'id-' + name}>{label}</label>
+            <input id={'id-' + name} name={name} type="text" autoComplete="off" spellCheck="false"
+                   maxLength={maxLength}
+                   placeholder={placeholder}
+                   onFocus={focusHandler}
+                   onBlur={blurHandler}
+            />
         </div>
     );
 };
 
 TextInput.propTypes = {
-    //type: PropType.string.isRequired
+    name: PropType.string.isRequired,
+    maxLength: PropType.number,
+    label: PropType.number,
+    placeholder: PropType.number,
 };
 
 TextInput.defaultProps = {
-    //type: "Susscess"
+    label: "Email Address",
+    placeholder: "e.g. jan.doe@email.com",
+    maxLength: 64
 };
 
 export default TextInput;

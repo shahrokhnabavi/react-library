@@ -4,7 +4,7 @@ import Classes from './App.css';
 
 import {
     CheckBox,
-    Overlay
+    TextInput,
 } from './components/UI/';
 
 class App extends Component {
@@ -32,7 +32,17 @@ class App extends Component {
                 <CheckBox name="ex6" disabled checked>Disable Checked</CheckBox><br />
                 
                 <hr />
+                <TextInput
+                    name="username"
+                    placeholder="enter a valid username..."
+                    label="Unique Username"
+                />
 
+                <TextInput
+                    name="phone"
+                    placeholder="your phone number..."
+                    label="Your Phone"
+                />
             </div>
         );
     }

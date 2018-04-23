@@ -1,0 +1,131 @@
+.TextInput{
+    position: relative;
+    padding: 20px 0;
+
+    input[type=text] {
+        border: none;
+        font-size: 12px;
+        color: #444;
+        margin: 0;
+        padding: 4px 0;
+        background: 0 0;
+        text-align: left;
+        outline: none;
+        display: block;
+        width: 100%;
+        border-bottom: 2px solid rgba(0,0,0,.12);
+    }
+
+    input::-webkit-input-placeholder {
+        -webkit-transition: all .3s cubic-bezier(0.4,0,0.2,1);
+        -o-transition: all .3s cubic-bezier(0.4,0,0.2,1);
+        transition: all .3s cubic-bezier(0.4,0,0.2,1);
+        color: rgba(0,0,0,.26);
+        font-size: 12px;
+        opacity: 0;
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+
+    }
+    input:-ms-input-placeholder {
+        -webkit-transition: all .3s cubic-bezier(0.4,0,0.2,1);
+        -o-transition: all .3s cubic-bezier(0.4,0,0.2,1);
+        transition: all .3s cubic-bezier(0.4,0,0.2,1);
+        color: rgba(0,0,0,.26);
+        font-size: 12px;
+        opacity: 0;
+        -ms-transform: translateX(100%);
+        transform: translateX(100%);
+
+    }
+    input::-ms-input-placeholder {
+        -webkit-transition: all .3s cubic-bezier(0.4,0,0.2,1);
+        -o-transition: all .3s cubic-bezier(0.4,0,0.2,1);
+        transition: all .3s cubic-bezier(0.4,0,0.2,1);
+        color: rgba(0,0,0,.26);
+        font-size: 12px;
+        opacity: 0;
+        -ms-transform: translateX(100%);
+        transform: translateX(100%);
+
+    }
+    input::placeholder {
+        -webkit-transition: all .3s cubic-bezier(0.4,0,0.2,1);
+        -o-transition: all .3s cubic-bezier(0.4,0,0.2,1);
+        transition: all .3s cubic-bezier(0.4,0,0.2,1);
+        color: rgba(0,0,0,.26);
+        font-size: 12px;
+        opacity: 0;
+        -webkit-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+        transform: translateX(100%);
+
+    }
+    input:focus::-webkit-input-placeholder{
+        -webkit-transform: translateX(0%);
+        transform: translateX(0%);
+        opacity: 1
+    }
+    input:focus:-ms-input-placeholder{
+        -ms-transform: translateX(0%);
+        transform: translateX(0%);
+        opacity: 1
+    }
+    input:focus::-ms-input-placeholder{
+        -ms-transform: translateX(0%);
+        transform: translateX(0%);
+        opacity: 1
+    }
+    input:focus::placeholder{
+        -webkit-transform: translateX(0%);
+        -ms-transform: translateX(0%);
+        transform: translateX(0%);
+        opacity: 1
+    }
+
+
+    label{
+        bottom: 0;
+        color: rgba(0,0,0,.26);
+        font-size: 12px;
+        left: 0;
+        right: 0;
+        pointer-events: none;
+        position: absolute;
+        display: block;
+        top: 24px;
+        width: 100%;
+        overflow: hidden;
+        text-align: left;
+        -webkit-transition: .2s cubic-bezier(.4,0,.2,1);
+        -o-transition: .2s cubic-bezier(.4,0,.2,1);
+        transition: .2s cubic-bezier(.4,0,.2,1);
+    }
+
+    label:after{
+        background-color: rgb(33,150,243);
+        bottom: 20px;
+        content: '';
+        height: 2px;
+        left: 45%;
+        position: absolute;
+        -webkit-transition: .3s cubic-bezier(0.4,0,0.2,1);
+        -o-transition: .3s cubic-bezier(0.4,0,0.2,1);
+        transition: .3s cubic-bezier(0.4,0,0.2,1);
+        visibility: hidden;
+        width: 10px;
+    }
+}
+
+.TextInput .Effect:after {
+    background-color: rgb(10, 107, 141);
+    width: 100%;
+    left: 0%;
+    visibility: visible;
+}
+.TextInput .Effect{
+    color: rgb(10, 107, 141);
+    font-size: 12px;
+    top: 4px;
+    visibility: visible;
+}
