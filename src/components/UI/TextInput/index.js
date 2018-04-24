@@ -40,7 +40,7 @@ const TextInput = props => {
 
     return (
         <div className={Classes.TextInput}>
-            <label for={'id-' + name}>{label}</label>
+            <label htmlFor={'id-' + name}>{label}</label>
             <input id={'id-' + name} name={name} type="text" autoComplete="off" spellCheck="false"
                    maxLength={maxLength}
                    placeholder={placeholder}
@@ -54,8 +54,8 @@ const TextInput = props => {
 TextInput.propTypes = {
     name: PropType.string.isRequired,
     maxLength: PropType.number,
-    label: PropType.number,
-    placeholder: PropType.number,
+    label: PropType.string,
+    placeholder: PropType.string,
 };
 
 TextInput.defaultProps = {
