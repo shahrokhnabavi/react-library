@@ -3,46 +3,38 @@ import PropType from 'prop-types';
 
 import Classes from './style.scss';
 
-class Ripple extends React.Component
+const Ripple = props =>
 {
-    state = {
-        diameter: 20,
-        left: 0,
-        top: 0
-    };
-
-    render() {
-        let style = {
-                height: this.state.diameter,
-                width: this.state.diameter,
-                left: this.state.left,
-                top: this.state.top,
-            };
-
-        return (
-            <div className={Classes.ItemContent} onMouseDown={this.ClickHandler}>
-                <span className={Classes.Ink} style={style} />
-                {this.props.children}
-            </div>
-        );
-    }
-
-    ClickHandler = e => {
-        const parent = e.currentTarget,
-            ink = parent.childNodes[0],
+    const ClickHandler = e => {
+        const el = e.currentTarget,
+            parent = el.parentNode,
+            ink = el.childNodes[0],
             maxDiameter = Math.max(parent.offsetWidth, parent.offsetHeight);
 
-            ink.classList.add(Classes.Animate);
-            this.setState({
-                left: e.clientX - parent.offsetLeft - maxDiameter/2,
-                top: e.clientY - parent.offsetTop - maxDiameter/2,
-                diameter: maxDiameter
-            });
+        parent.style.margin = '0';
+        parent.style.padding = '0';
 
-            setTimeout( () => {
-                ink.classList.remove(Classes.Animate);
-            }, 650);
+        el.style.width = parent.clientWidth + 'px';
+        el.style.height = parent.clientHeight + 'px';
+
+        ink.classList.add(Classes.Animate);
+
+        ink.style.width = maxDiameter + 'px';
+        ink.style.height = maxDiameter + 'px';
+        ink.style.left = e.clientX - parent.offsetLeft - maxDiameter/2 + 'px';
+        ink.style.top = e.clientY - parent.offsetTop - maxDiameter/2 + 'px';
+
+        setTimeout( () => {
+            ink.classList.remove(Classes.Animate);
+        }, 650);
     };
+
+    return (
+        <div className={Classes.ItemContent} onMouseDown={ClickHandler}>
+            <span className={Classes.Ink} />
+            {props.children}
+        </div>
+    );
 }
 
 Ripple.propTypes = {

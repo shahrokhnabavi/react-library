@@ -6,6 +6,7 @@ import {
     CheckBox,
     TextInput,
 } from './components/UI/';
+import {Ripple} from './components/UI/Effects/';
 
 class App extends Component {
     state = {
@@ -43,6 +44,13 @@ class App extends Component {
                     placeholder="your phone number..."
                     label="Your Phone"
                 />
+                <hr />
+                <div style={{border: '1px solid #ccc'}}>
+                    <Ripple><span>Me</span></Ripple>
+                </div>
+                <button>
+                    <Ripple>Check</Ripple>
+                </button>
             </div>
         );
     }
