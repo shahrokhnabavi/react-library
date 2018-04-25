@@ -62,7 +62,7 @@ class App extends Component {
                 <Button
                     name="submit"
                     width={200}
-                    type="warning"
+                    type="danger"
                     round={5}
                     caption="Delete"
                 />

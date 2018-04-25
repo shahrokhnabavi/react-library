@@ -45,6 +45,9 @@ const Button = props => {
         case 'warning':
             cls.push(Classes.Warning);
             break;
+        case 'danger':
+            cls.push(Classes.Danger);
+            break;
     }
 
     return (
@@ -66,7 +69,7 @@ const Button = props => {
 Button.propTypes = {
     name: PropType.string.isRequired,
     caption: PropType.string.isRequired,
-    type: PropType.oneOf(['default', 'warning']).isRequired,
+    type: PropType.oneOf(['default', 'warning', 'danger']).isRequired,
     round: PropType.oneOf([0,3,5,20]),
     width: PropType.number,
     heights: PropType.number,

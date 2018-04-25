@@ -21,6 +21,18 @@
     }
 }
 
+.Danger{
+    background-color: #e84c3d;
+    color: #fff;
+    border: 0;
+    border-bottom: 3px solid #b1372d;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.4);
+
+    &:hover {
+        background-color: #e66054;
+    }
+}
+
 .Pressed {
     border-bottom-width: 1px;
 }
