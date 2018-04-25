@@ -5,8 +5,8 @@ import Classes from './App.css';
 import {
     CheckBox,
     TextInput,
+    Button
 } from './components/UI/';
-import {Ripple} from './components/UI/Effects/';
 
 class App extends Component {
     state = {
@@ -44,13 +44,35 @@ class App extends Component {
                     placeholder="your phone number..."
                     label="Your Phone"
                 />
+                <TextInput
+                      name="username"
+                      placeholder="enter a valid username..."
+                      label="Unique Username"
+                      style={{color: 'red'}}
+                      data={{test: 'my name'}}
+                 />
                 <hr />
-                <div style={{border: '1px solid #ccc'}}>
-                    <Ripple><span>Me</span></Ripple>
-                </div>
-                <button>
-                    <Ripple>Check</Ripple>
-                </button>
+                <Button
+                    name="submit"
+                    width={200}
+                    type="warning"
+                    round={3}
+                    caption="Update"
+                />
+                <Button
+                    name="submit"
+                    width={200}
+                    type="warning"
+                    round={5}
+                    caption="Delete"
+                />
+                <Button
+                    name="submit"
+                    width={200}
+                    type="default"
+                    round={20}
+                    caption="Default"
+                />
             </div>
         );
     }

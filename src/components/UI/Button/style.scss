@@ -1,0 +1,38 @@
+.Button {
+    display: block;
+    outline: none;
+    width: 100%;
+    margin: 4px;
+
+    border: 1px solid #555;
+    border-bottom: 3px solid #555;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.4);
+}
+
+.Warning{
+    background-color: #fdc80f;
+    color: #fff;
+    border: 0;
+    border-bottom: 3px solid #e0ab25;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.4);
+
+    &:hover {
+        background-color: #fdd417;
+    }
+}
+
+.Pressed {
+    border-bottom-width: 1px;
+}
+
+.Round3{
+    border-radius: 3px;
+}
+
+.Round5{
+    border-radius: 5px;
+}
+
+.Round20{
+    border-radius: 20px;
+}
