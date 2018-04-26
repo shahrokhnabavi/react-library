@@ -1,8 +1,4 @@
-$darkBlue: #405b78;
-$tickTextShadow: 0 2px 0 #2f435b;
-$lightBlue: #7292b1;
-$disabledColor: #cecece;
-$disabledTextShadow: 0 1px 0 rgba(0,0,0, 0.5);
+@import '../variables';
 
 $size: 20px;
 $borderWidth: 3px;
@@ -19,8 +15,8 @@ $borderWidth: 3px;
     }
 
     .Box {
-        color: $darkBlue;
-        border: $borderWidth solid $darkBlue;
+        color: $primary;
+        border: $borderWidth solid $primary;
         width: $size;
         height: $size;
 
@@ -35,7 +31,7 @@ $borderWidth: 3px;
     }
 
     .Checked {
-        background-color: $darkBlue;
+        background-color: $primary;
         color: white;
         text-shadow: $tickTextShadow;
 
@@ -60,13 +56,13 @@ $borderWidth: 3px;
     cursor: not-allowed;
 
     i {
-        color: $lightBlue;
+        color: $primaryDisabled;
         text-shadow: none;
     }
 
     span {
-        color: $disabledColor;
-        text-shadow: $disabledTextShadow;
+        color: $primaryDisabledColor;
+        text-shadow: $tickDisabledTextShadow;
     }
 }
 
