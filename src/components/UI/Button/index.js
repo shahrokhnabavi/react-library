@@ -48,6 +48,8 @@ const Button = props => {
         case 'danger':
             cls.push(Classes.Danger);
             break;
+        default:
+            cls.push(Classes.Default);
     }
 
     return (

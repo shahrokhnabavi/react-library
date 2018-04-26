@@ -1,35 +1,45 @@
+@import '../variables';
+
 .Button {
     display: block;
     outline: none;
     width: 100%;
     margin: 4px;
+    cursor: pointer;
+    border: 0;
+}
 
-    border: 1px solid #555;
-    border-bottom: 3px solid #555;
-    text-shadow: 0 1px 0 rgba(0,0,0,0.4);
+.Default{
+    //background-color: $warning;
+    color: $defaultColor;
+    border: 1px solid $defaultBorderBottom;
+    border-bottom-width: 3px;
+    text-shadow: $darkTextShadow;
+
+    &:hover {
+        background-color: $defaultHover;
+    }
 }
 
 .Warning{
-    background-color: #fdc80f;
-    color: #fff;
-    border: 0;
-    border-bottom: 3px solid #e0ab25;
-    text-shadow: 0 1px 0 rgba(0,0,0,0.4);
+    background-color: $warning;
+    color: $warningColor;
+    border-bottom: 3px solid $warningBorderBottom;
+    text-shadow: $darkTextShadow;
 
     &:hover {
-        background-color: #fdd417;
+        background-color: $warningHover;
     }
 }
 
 .Danger{
-    background-color: #e84c3d;
-    color: #fff;
-    border: 0;
-    border-bottom: 3px solid #b1372d;
-    text-shadow: 0 1px 0 rgba(0,0,0,0.4);
+    background-color: $danger;
+    color: $dangerColor;
+    border-bottom: 3px solid $dangerBorderBottom;
+    text-shadow: $darkTextShadow;
 
     &:hover {
-        background-color: #e66054;
+        background-color: $dangerHover;
     }
 }
 
