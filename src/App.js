@@ -74,34 +74,30 @@ class App extends Component {
 
                             <Button
                                 name="submit"
-                                width={200}
+                                width={100}
                                 type="warning"
                                 round={3}
                                 caption="Update"
                             />
                             <Button
                                 name="submit"
-                                width={200}
                                 type="danger"
                                 round={5}
                                 caption="Delete"
                             />
                             <Button
                                 name="submit"
-                                width={200}
                                 type="default"
                                 round={20}
                                 caption="Default"
                             />
                             <Button
                                 name="submit"
-                                width={200}
                                 type="primary"
                                 caption="Continue"
                             />
                             <Button
                                 name="submit"
-                                width={200}
                                 type="success"
                                 caption="Save User"
                             />
