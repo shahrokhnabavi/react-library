@@ -48,6 +48,15 @@ const Button = props => {
         case 'danger':
             cls.push(Classes.Danger);
             break;
+        case 'primary':
+            cls.push(Classes.Primary);
+            break;
+        case 'success':
+            cls.push(Classes.Success);
+            break;
+        case 'info':
+            cls.push(Classes.Info);
+            break;
         default:
             cls.push(Classes.Default);
     }
@@ -71,7 +80,7 @@ const Button = props => {
 Button.propTypes = {
     name: PropType.string.isRequired,
     caption: PropType.string.isRequired,
-    type: PropType.oneOf(['default', 'warning', 'danger']).isRequired,
+    type: PropType.oneOf(['default', 'warning', 'danger', 'success', 'primary']).isRequired,
     round: PropType.oneOf([0,3,5,20]),
     width: PropType.number,
     heights: PropType.number,

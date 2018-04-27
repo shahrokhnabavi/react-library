@@ -42,6 +42,39 @@
     }
 }
 
+.Success{
+    background-color: $success;
+    color: $successColor;
+    border-bottom: 3px solid $successBorderBottom;
+    text-shadow: $darkTextShadow;
+
+    &:hover {
+        background-color: $successHover;
+    }
+}
+
+.Info{
+    background-color: $info;
+    color: $infoColor;
+    border-bottom: 3px solid $infoBorderBottom;
+    text-shadow: $darkTextShadow;
+
+    &:hover {
+        background-color: $infoHover;
+    }
+}
+
+.Primary{
+    background-color: $primary;
+    color: $primaryColor;
+    border-bottom: 3px solid $primaryBorderBottom;
+    text-shadow: $darkTextShadow;
+
+    &:hover {
+        background-color: $primaryHover;
+    }
+}
+
 .Pressed {
     border-bottom-width: 1px;
 }

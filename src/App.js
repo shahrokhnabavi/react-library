@@ -73,6 +73,24 @@ class App extends Component {
                     round={20}
                     caption="Default"
                 />
+                <Button
+                    name="submit"
+                    width={200}
+                    type="primary"
+                    caption="Continue"
+                />
+                <Button
+                    name="submit"
+                    width={200}
+                    type="success"
+                    caption="Save User"
+                />
+                <Button
+                    name="submit"
+                    width={200}
+                    type="info"
+                    caption="Show Details"
+                />
             </div>
         );
     }
