@@ -5,7 +5,8 @@ import CaptionPanel from './components/CaptionPanel/';
 import {
     CheckBox,
     TextInput,
-    Button
+    Button,
+    Progress
 } from './components/UI/';
 
 class App extends Component {
@@ -107,6 +108,15 @@ class App extends Component {
                                 caption="Show Details"
                             />
 
+                        </CaptionPanel>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-4">
+                        <CaptionPanel caption="Progress Bars">
+                            <Progress percent="20"/>
+                            <Progress percent="2"/>
+                            <Progress percent="13"/>
                         </CaptionPanel>
                     </div>
                 </div>
