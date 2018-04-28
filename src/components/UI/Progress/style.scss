@@ -1,21 +1,79 @@
 @import '../variables';
 
 .Progress{
-    background-color: $primary;
-    border-top: 2px solid $primaryBorderBottom;
     overflow: hidden;
     margin-bottom: 5px;
     position: relative;
+    background-color: $progressBarColor;
+    border-top-width: 2px;
+    border-top-style: solid;
+    border-radius: 3px;
+
+    &.Default {
+        background-color: #fff;
+        border-top-color: $defaultBorderBottom;
+        .Bar {
+            background-color: #B0BEC5;
+        }
+    }
+
+    &.Primary {
+        border-top-color: $primary;
+        span {
+            color: $primaryColor;
+        }
+        .Bar {
+            background-color: $primary;
+        }
+    }
+
+    &.Warning {
+        border-top-color: $warningBorderBottom;
+        span {
+            color: $warningColor;
+        }
+        .Bar {
+            background-color: $warning;
+        }
+    }
+
+    &.Success {
+        border-top-color: $successBorderBottom;
+        span {
+            color: $successColor;
+        }
+        .Bar {
+            background-color: $success;
+        }
+    }
+
+    &.Danger {
+        border-top-color: $dangerBorderBottom;
+        span {
+            color: $dangerColor;
+        }
+        .Bar {
+            background-color: $danger;
+        }
+    }
+
+    &.Info {
+        border-top-color: $infoBorderBottom;
+        span {
+            color: $infoColor;
+        }
+        .Bar {
+            background-color: $info;
+        }
+    }
 
     .Bar {
-        text-shadow: $darkTextShadow;
-        background-color: $info;
         display: inline-block;
         transition: all 1s;
         text-align: right;
+        text-shadow: 0 1px 0 rgba(0,0,0, 0.7);
 
         span {
-            color: $infoColor;
             position: absolute;
             right: 5px;
         }

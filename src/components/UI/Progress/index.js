@@ -5,7 +5,7 @@ import Classes from './style.scss';
 import * as setting from '../constants';
 
 const Progress = props => {
-    const { percent, active, striped } = props;
+    const { percent, active, striped, type } = props;
 
     const style = {
         width: ((percent >= 0 && percent <= 100) ? percent : 100) + '%',
