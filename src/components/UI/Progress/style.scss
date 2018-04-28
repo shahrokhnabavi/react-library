@@ -14,64 +14,39 @@
         transition: all 1s;
         text-align: right;
 
-        .Caption {
+        span {
             color: $infoColor;
             position: absolute;
             right: 5px;
         }
+
+        &::after {
+            content: "space";
+            display: block;
+            clear: both;
+            visibility: hidden;
+        }
     }
-
-    .Bar::after {
-        content: "d";
-        display: block;
-        clear: both;
-        visibility: hidden;
-    }
 }
 
-.line {
-    width: 200px;
+@keyframes progress-bar-stripes {
+    from  { background-position: 40px 0; }
+    to    { background-position: 0 0; }
 }
 
-.stripesLoader {
-    margin: 4px;
-    height: 20px;
-    /*should not be larger than 20px*/
-    position: relative;
-    background: linear-gradient(90deg, #eee 50%, transparent 50%);
-    background-color: crimson;
-    background-size: 200%;
-    background-position: 80%;
-    border-radius: 5px;
-    transform: scale(-1);
-    transition: 0.3s;
+.Active {
+    animation: progress-bar-stripes 2s linear infinite;
 }
-
-.stripesLoader:before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-    background: linear-gradient(
+.Striped {
+    background-image: linear-gradient(
                     45deg,
+                    rgba(255,255,255,.15) 25%,
                     transparent 25%,
-                    rgba(238, 238, 238, 0.5) 25%,
-                    rgba(238, 238, 238, 0.5) 30%,
-                    transparent 30%,
-                    transparent 35%,
-                    rgba(238, 238, 238, 0.5) 35%,
-                    rgba(238, 238, 238, 0.5) 70%,
-                    transparent 70%
+                    transparent 50%,
+                    rgba(255,255,255,.15) 50%,
+                    rgba(255,255,255,.15) 75%,
+                    transparent 75%,
+                    transparent
     );
-    animation: shift 2s linear infinite;
-    background-size: 60px 100%;
-    box-shadow: inset 0 0px 1px rgba(0, 0, 0, 0.2),
-    inset 0 -2px 1px rgba(0, 0, 0, 0.2);
-}
-
-@keyframes shift {
-    to {
-        background-position: 60px 100%;
-    }
+    background-size: 40px 40px;
 }

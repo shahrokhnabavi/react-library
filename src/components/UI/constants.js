@@ -1,0 +1,1 @@
+export const componentTypes = ['default', 'warning', 'danger', 'success', 'primary'];

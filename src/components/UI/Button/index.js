@@ -2,6 +2,7 @@ import React from 'react';
 import PropType from 'prop-types';
 
 import Classes from './style.scss';
+import * as setting from '../constants';
 
 const Button = props => {
     const {
@@ -80,7 +81,7 @@ const Button = props => {
 Button.propTypes = {
     name: PropType.string.isRequired,
     caption: PropType.string.isRequired,
-    type: PropType.oneOf(['default', 'warning', 'danger', 'success', 'primary']).isRequired,
+    type: PropType.oneOf(setting.componentTypes).isRequired,
     round: PropType.oneOf([0,3,5,20]),
     width: PropType.number,
     heights: PropType.number,

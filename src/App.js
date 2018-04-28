@@ -116,7 +116,7 @@ class App extends Component {
                         <CaptionPanel caption="Progress Bars">
                             <Progress percent="20"/>
                             <Progress percent="2"/>
-                            <Progress percent="13"/>
+                            <Progress percent="50" striped active/>
                         </CaptionPanel>
                     </div>
                 </div>
