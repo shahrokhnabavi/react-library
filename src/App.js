@@ -124,6 +124,71 @@ class App extends Component {
                             <Progress percent="14" striped active type="info"/>
                         </CaptionPanel>
                     </div>
+
+
+                    <div className="col-4">
+                        <CaptionPanel caption="On/Off">
+                        </CaptionPanel>
+                    </div>
+
+                    <div className="col-4">
+                        <CaptionPanel caption="Slider">
+                        </CaptionPanel>
+                    </div>
+                </div>
+
+                <div className="row">
+
+                    <div className="col-4">
+                        <CaptionPanel caption="Icon Button">
+                        </CaptionPanel>
+                    </div>
+
+                    <div className="col-4">
+                        <CaptionPanel caption="Range Slider">
+                        </CaptionPanel>
+                    </div>
+
+                    <div className="col-4">
+                        <CaptionPanel caption="Radio Button">
+                        </CaptionPanel>
+                    </div>
+                </div>
+
+                <div className="row">
+
+                    <div className="col-4">
+                        <CaptionPanel caption="Select Box">
+                        </CaptionPanel>
+                    </div>
+
+                    <div className="col-4">
+                        <CaptionPanel caption="Tag Selector">
+                        </CaptionPanel>
+                    </div>
+
+                    <div className="col-4">
+                        <CaptionPanel caption="Hamburger Button">
+                        </CaptionPanel>
+                    </div>
+                </div>
+
+                <div className="row">
+
+                    <div className="col-4">
+                        <CaptionPanel caption="Modal Panel">
+                        </CaptionPanel>
+                    </div>
+
+                    <div className="col-4">
+                        <CaptionPanel caption="Slide Menu">
+                        </CaptionPanel>
+                    </div>
+
+                    <div className="col-4">
+                        <CaptionPanel caption="Navigation Bar">
+                        </CaptionPanel>
+                    </div>
                 </div>
 
             </div>
