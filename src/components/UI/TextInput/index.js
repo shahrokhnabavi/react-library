@@ -27,6 +27,8 @@ const TextInput = props => {
         label,
         style,
         data,
+        userClass,
+        userStyle,
         onBlur,
         onFocus,
         onClick,
@@ -70,7 +72,7 @@ const TextInput = props => {
     };
 
     return (
-        <div className={Classes.TextInput}>
+        <div className={[...userClass, Classes.TextInput].join(' ')} style={userStyle}>
             <label htmlFor={'id-' + name}>{label}</label>
             <Input
                 type="text"
@@ -94,6 +96,8 @@ TextInput.propTypes = {
     placeholder: PropType.string,
     data: PropType.object,
     style: PropType.object,
+    userStyle: PropType.object,
+    userClass: PropType.array,
     onBlur: PropType.func,
     onFocus: PropType.func,
     onClick: PropType.func,
@@ -106,6 +110,8 @@ TextInput.defaultProps = {
     maxLength: 64,
     data: {},
     style: {},
+    userStyle: {},
+    userClass: [],
     onBlur: () => { console.log("On Blur triggered"); },
     onFocus: () => { console.log("On Focus triggered"); },
     onClick: () => { console.log("On click triggered"); },

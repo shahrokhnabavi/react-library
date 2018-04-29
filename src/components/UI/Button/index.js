@@ -12,7 +12,8 @@ const Button = props => {
         round,
         width,
         height,
-        style,
+        userStyle,
+        userClass,
         data,
         onClick,
     } = props;
@@ -23,12 +24,12 @@ const Button = props => {
     }, {});
 
     const inlineStyle = {
-        ...style,
+        ...userStyle,
         width: width + 'px',
         height: height + 'px'
     };
 
-    const cls = [ Classes.Button ];
+    const cls = [...userClass, Classes.Button];
 
     switch( round ){
         case 3:
@@ -86,7 +87,8 @@ Button.propTypes = {
     width: PropType.number,
     heights: PropType.number,
     data: PropType.object,
-    style: PropType.object,
+    userStyle: PropType.object,
+    userClass: PropType.array,
     onClick: PropType.func
 };
 
@@ -95,7 +97,8 @@ Button.defaultProps = {
     round: 0,
     height: 35,
     data: {},
-    style: {},
+    userStyle: {},
+    userClass: [],
     onClick: () => { console.log("Clicked"); }
 };
 

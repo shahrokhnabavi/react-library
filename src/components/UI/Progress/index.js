@@ -16,7 +16,7 @@ import * as setting from '../constants';
  * ```
  */
 const Progress = props => {
-    const { percent, active, striped, type } = props;
+    const { percent, active, striped, type, userStyle, userClass } = props;
 
     const style = {
         width: ((percent >= 0 && percent <= 100) ? percent : 100) + '%',
@@ -31,7 +31,7 @@ const Progress = props => {
         barClass.push( Classes.Striped );
     }
 
-    const cls = [Classes.Progress];
+    const cls = [...userClass, Classes.Progress];
     switch( type ){
         case 'warning':
             cls.push(Classes.Warning);
@@ -53,7 +53,7 @@ const Progress = props => {
     }
 
     return (
-        <div className={cls.join(' ')}>
+        <div className={cls.join(' ')} style={userStyle}>
             <div className={barClass.join(' ')} style={style}>
                 <span>{percent}%</span>
             </div>
@@ -65,6 +65,8 @@ Progress.propTypes = {
     percent: PropType.number.isRequired,
     active: PropType.bool,
     striped: PropType.bool,
+    userStyle: PropType.object,
+    userClass: PropType.array,
     type: PropType.oneOf(setting.componentTypes)
 };
 
@@ -72,6 +74,8 @@ Progress.defaultProps = {
     percent: 3,
     active: false,
     striped: false,
+    userStyle: {},
+    userClass: [],
     type: 'default'
 };
 

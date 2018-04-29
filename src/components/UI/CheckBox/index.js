@@ -38,6 +38,8 @@ const CheckBox = props => {
         checked,
         readOnly,
         data,
+        userStyle,
+        userClass,
         onClick,
         onChange,
         style,
@@ -64,7 +66,7 @@ const CheckBox = props => {
     };
 
     const styleCheckBox = [Classes.Box],
-        styleComponent = [Classes.CheckBox],
+        styleComponent = [...userClass, Classes.CheckBox],
         extraAttribute = {
             defaultChecked: checked,
             name: name,
@@ -101,7 +103,7 @@ const CheckBox = props => {
     const LABEL = <span className={Classes.Label} style={style.caption}>{props.children}</span>;
 
     return (
-        <label className={styleComponent.join(' ')}>
+        <label className={styleComponent.join(' ')} style={userStyle}>
             {captionPos === 'before' ? LABEL : null}
             {INPUT}
             {captionPos === 'after' ? LABEL : null}
@@ -119,6 +121,8 @@ CheckBox.propTypes = {
     readOnly: PropType.bool,
     captionPos: PropType.oneOf(['before', 'none', 'after']),
     style: PropType.object,
+    userStyle: PropType.object,
+    userClass: PropType.array,
     onChange: PropType.func,
     onClick: PropType.func,
 };
@@ -126,6 +130,8 @@ CheckBox.propTypes = {
 CheckBox.defaultProps = {
     captionPos: 'after',
     style: { box:{} , tick: {} , caption: {} },
+    userStyle: {},
+    userClass: [],
     onClick: () => console.log("CheckBox is clicked"),
     onChange: () => console.log("CheckBox is changed"),
 };
