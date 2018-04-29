@@ -4,6 +4,17 @@ import PropType from 'prop-types';
 import Classes from './style.scss';
 import * as setting from '../constants';
 
+/**
+ * Usage Example:
+ * ```
+ * <Progress
+ *      percent="30"
+ *      striped
+ *      active
+ *      type="primary"
+ * />
+ * ```
+ */
 const Progress = props => {
     const { percent, active, striped, type } = props;
 

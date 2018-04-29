@@ -6,7 +6,8 @@ import {
     CheckBox,
     TextInput,
     Button,
-    Progress
+    Progress,
+    SwitchButton
 } from './components/UI/';
 
 class App extends Component {
@@ -128,6 +129,8 @@ class App extends Component {
 
                     <div className="col-4">
                         <CaptionPanel caption="On/Off">
+                            <SwitchButton name="name01"/>
+                            <SwitchButton name="name01" switchOn/>
                         </CaptionPanel>
                     </div>
 
