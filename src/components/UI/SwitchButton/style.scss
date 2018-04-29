@@ -1,12 +1,14 @@
+@import '../variables';
+
 $switchWidth: 30px;
 
 .SwitchButton{
     background-color: #eee;
     border: 2px solid #cccccc;
-    padding: 3px;
+    padding: 1px;
     width: $switchWidth * 2;
     display: inline-block;
-    margin-right: 5px;
+    margin-bottom: 5px;
     cursor: pointer;
 
     .Switch {
@@ -16,17 +18,16 @@ $switchWidth: 30px;
     }
 
     .On {
-        background-color: green;
-        transform: translateX(0px);
+        background-color: $success;
     }
 
     .Off {
-        background-color: red;
-        transform: translateX($switchWidth);
+        background-color: $danger;
     }
 
     span {
         font-size: .7em;
         color: #ffffff;
+        vertical-align: text-bottom;
     }
 }

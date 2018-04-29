@@ -128,8 +128,24 @@ class App extends Component {
 
                     <div className="col-4">
                         <CaptionPanel caption="On/Off">
-                            <SwitchButton name="name01"/>
-                            <SwitchButton name="name01" switchOn/>
+                            <SwitchButton name="name01"/><br/>
+                            <SwitchButton name="name01" switchOn/><br/>
+                            <SwitchButton
+                                name="name01"
+                                switchOn
+                                labelOff="Disable"
+                                labelOn="Enable"
+                                width={100}
+                            /><br/>
+                            <SwitchButton
+                                name="name01"
+                                switchOn
+                                labelOff="Landing"
+                                valueOff="zero"
+                                labelOn="Taking off"
+                                valueOn="one"
+                                width={120}
+                            /><br/>
                         </CaptionPanel>
                     </div>
 
