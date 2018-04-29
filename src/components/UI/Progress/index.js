@@ -8,7 +8,7 @@ import * as setting from '../constants';
  * Usage Example:
  * ```
  * <Progress
- *      percent="30"
+ *      percent={30}
  *      striped
  *      active
  *      type="primary"

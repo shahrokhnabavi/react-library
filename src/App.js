@@ -115,17 +115,16 @@ class App extends Component {
                 <div className="row">
                     <div className="col-4">
                         <CaptionPanel caption="Progress Bars">
-                            <Progress percent="20" type="primary"/>
-                            <Progress percent="2"/>
-                            <Progress percent="80" striped active/>
-                            <Progress percent="30" striped active type="primary"/>
-                            <Progress percent="50" striped active type="warning"/>
-                            <Progress percent="42" striped active type="danger"/>
-                            <Progress percent="90" striped active type="success"/>
-                            <Progress percent="14" striped active type="info"/>
+                            <Progress percent={20} type="primary"/>
+                            <Progress percent={2}/>
+                            <Progress percent={80} striped active/>
+                            <Progress percent={30} striped active type="primary"/>
+                            <Progress percent={50} striped active type="warning"/>
+                            <Progress percent={42} striped active type="danger"/>
+                            <Progress percent={90} striped active type="success"/>
+                            <Progress percent={14} striped active type="info"/>
                         </CaptionPanel>
                     </div>
-
 
                     <div className="col-4">
                         <CaptionPanel caption="On/Off">
