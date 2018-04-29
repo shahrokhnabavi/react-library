@@ -151,7 +151,9 @@ class App extends Component {
 
                     <div className="col-4">
                         <CaptionPanel caption="Slider">
-                            <Slider name="hora" />
+                            <Slider name="hora" userStyle={{marginBottom: '15px'}} />
+                            <Slider name="hora" min={200} max={2000} userStyle={{marginBottom: '15px'}} />
+                            <Slider name="hora" userStyle={{marginBottom: '15px'}}/>
                         </CaptionPanel>
                     </div>
                 </div>

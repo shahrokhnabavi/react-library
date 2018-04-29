@@ -29,6 +29,8 @@ const SwitchButton = props => {
         valueOff,
         switchOn,
         width,
+        userStyle,
+        userClass,
         onChanged,
     } = props;
 
@@ -61,15 +63,18 @@ const SwitchButton = props => {
     const switchCls = [Classes.Switch, (switchOn ? Classes.On : Classes.Off)];
     const label = switchOn ? labelOn : labelOff;
     const value = switchOn ? valueOn : valueOff;
-    const style = { width: width + 'px', };
     const positionOff = Math.round(width/2);
     const styleSwitch = {
         width: positionOff + 'px',
         transform: 'translate(' + (switchOn ? 0 : positionOff) + 'px)'
     };
 
+
+    const cls = [...userClass, Classes.SwitchButton];
+    const style = {...userStyle,  width: width + 'px'};
+
     return (
-        <div className={Classes.SwitchButton} style={style} onClick={clickHandler}>
+        <div className={cls.join(' ')} style={style} onClick={clickHandler}>
             <div className={switchCls.join(' ')} style={styleSwitch}>
                 <span>{label}</span>
             </div>
@@ -90,6 +95,8 @@ SwitchButton.propTypes = {
     valueOff: PropType.string,
     switchOn: PropType.bool,
     width: PropType.number,
+    userStyle: PropType.object,
+    userClass: PropType.array,
     onChanged: PropType.func,
 };
 
@@ -100,6 +107,8 @@ SwitchButton.defaultProps = {
     valueOff: '0',
     switchOn: false,
     width: 60,
+    userStyle: {},
+    userClass: [],
     onChanged: (isOn, value) => { console.log("Switch [" + isOn + "]: " + value); },
 };
 

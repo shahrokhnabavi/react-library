@@ -27,6 +27,9 @@ const Slider = props => {
         min,
         max,
         value,
+        isPercent,
+        userStyle,
+        userClass,
         onChanged,
     } = props;
 
@@ -34,35 +37,30 @@ const Slider = props => {
         input = node;
     };
 
-    const clickHandler = event => {
-        const isOn = input.value === '',
-            el = event.currentTarget,
-            btn = el.childNodes[0],
-            label = btn.childNodes[0];
-
-        onChanged( !isOn, input.value );
-    };
-
     const move = (e) => {
         e.preventDefault();
         const el = e.currentTarget,
             parent = el.parentNode;
         if ( drag ) {
-
             const position = parent.getBoundingClientRect(),
                   width = Math.round(el.offsetWidth/2),
-                  barWidth = parent.clientWidth - el.offsetWidth;
+                  barMax = parent.clientWidth - el.offsetWidth,
+                  barMin = Math.floor(position.left);
 
-            let left = e.clientX - Math.floor(position.left) - width;
+            let left = e.clientX - barMin - width;
             if( left < 0 )
                 left = 0;
 
-            if( left > barWidth )
-                left = barWidth;
+            if( left > barMax )
+                left = barMax;
 
             el.style.left = left + 'px';
 
-            const percent = Math.round( left * (max - min) / barWidth);
+            const percent = Math.round( left * 100 / barMax );
+            const value = min + (percent * (max - min) / 100);
+
+            input.value = isPercent ? percent : value;
+            onChanged(percent, value);
         }
     };
 
@@ -72,8 +70,11 @@ const Slider = props => {
         drag = true;
     };
 
+    const cls = [...userClass, Classes.Slider];
+    const style = {...userStyle};
+
     return (
-        <div className={Classes.Slider}>
+        <div className={cls.join(' ')} style={style}>
             <div className={Classes.Handler}
                  onMouseMove={move}
                  onMouseDown={down}
@@ -92,6 +93,9 @@ Slider.propTypes = {
     min: PropType.number,
     max: PropType.number,
     value: PropType.number,
+    isPercent: PropType.bool,
+    userStyle: PropType.object,
+    userClass: PropType.array,
     onChanged: PropType.func,
 };
 
@@ -99,7 +103,10 @@ Slider.defaultProps = {
     min: 0,
     max: 100,
     value: 50,
-    onChanged: (isOn, value) => { console.log("Switch [" + isOn + "]: " + value); },
+    isPercent: true,
+    userStyle: {},
+    userClass: [],
+    onChanged: (percent, value) => { console.log("Slider [" + percent + "]: " + value); },
 };
 
 export default Slider;
