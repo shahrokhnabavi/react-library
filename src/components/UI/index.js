@@ -4,6 +4,7 @@ import TextInput from './TextInput/';
 import Button from './Button/';
 import Progress from './Progress/';
 import SwitchButton from './SwitchButton/';
+import Slider from './Slider/';
 
 export {
     CheckBox,
@@ -11,5 +12,6 @@ export {
     TextInput,
     Button,
     Progress,
-    SwitchButton
+    SwitchButton,
+    Slider
 }

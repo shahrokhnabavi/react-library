@@ -8,6 +8,13 @@ import Input from '../Input/';
  * Usage Example:
  * ```
  * <SwitchButton
+ *      name="name01"
+ *      switchOn
+ *      labelOff="Landing"
+ *      valueOff="zero"
+ *      labelOn="Taking off"
+ *      valueOn="one"
+ *      width={120}
  * />
  * ```
  */

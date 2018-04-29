@@ -1,0 +1,36 @@
+@import '../variables';
+
+$height: 5px;
+
+.Slider{
+    background-color: $success;
+    border-top: 2px solid $successBorderBottom;
+    margin-bottom: 5px;
+    height: $height;
+    position: relative;
+
+    .Handler {
+        width: $height+10px;
+        height: $height+10px;
+        cursor: pointer;
+        position: absolute;
+        background-color: #f1f1f1;
+        border-radius: 50%;
+        top: -7px;
+        border: 1px solid #ccc;
+    }
+
+    .On {
+        background-color: $success;
+    }
+
+    .Off {
+        background-color: $danger;
+    }
+
+    span {
+        font-size: .7em;
+        color: #ffffff;
+        vertical-align: text-bottom;
+    }
+}

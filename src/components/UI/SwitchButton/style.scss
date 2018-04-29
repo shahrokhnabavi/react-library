@@ -1,18 +1,14 @@
 @import '../variables';
 
-$switchWidth: 30px;
-
 .SwitchButton{
     background-color: #eee;
     border: 2px solid #cccccc;
     padding: 1px;
-    width: $switchWidth * 2;
     display: inline-block;
     margin-bottom: 5px;
     cursor: pointer;
 
     .Switch {
-        width: $switchWidth;
         text-align: center;
         transition: all 0.3s;
     }

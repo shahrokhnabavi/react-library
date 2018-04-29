@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-// import Classes from './App.scss';
 import CaptionPanel from './components/CaptionPanel/';
 import {
     CheckBox,
     TextInput,
     Button,
     Progress,
-    SwitchButton
+    SwitchButton,
+    Slider
 } from './components/UI/';
 
 class App extends Component {
@@ -127,7 +127,7 @@ class App extends Component {
                     </div>
 
                     <div className="col-4">
-                        <CaptionPanel caption="On/Off">
+                        <CaptionPanel caption="SwitchButton">
                             <SwitchButton name="name01"/><br/>
                             <SwitchButton name="name01" switchOn/><br/>
                             <SwitchButton
@@ -151,6 +151,7 @@ class App extends Component {
 
                     <div className="col-4">
                         <CaptionPanel caption="Slider">
+                            <Slider name="hora" />
                         </CaptionPanel>
                     </div>
                 </div>
