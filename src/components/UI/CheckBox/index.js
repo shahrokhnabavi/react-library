@@ -62,6 +62,7 @@ const CheckBox = props => {
         onChange({
             element: el,
             isCheck: el.checked,
+            input: input
         });
     };
 

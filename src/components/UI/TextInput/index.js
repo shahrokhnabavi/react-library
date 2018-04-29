@@ -18,8 +18,6 @@ import Input from '../Input/';
  * ```
  */
 const TextInput = props => {
-    let input = null;
-
     const {
         name,
         maxLength,
@@ -59,7 +57,6 @@ const TextInput = props => {
     };
 
     const getInput = (node) => {
-        input = node;
     };
 
     const extraAttribute = {

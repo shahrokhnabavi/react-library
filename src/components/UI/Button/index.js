@@ -41,6 +41,8 @@ const Button = props => {
         case 20:
             cls.push(Classes.Round20);
             break;
+        default:
+            break;
     }
 
     switch( type ){
