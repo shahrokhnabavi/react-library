@@ -4,6 +4,18 @@ import PropType from 'prop-types';
 import Classes from './style.scss';
 import * as setting from '../constants';
 
+/**
+ * Usage Example:
+ * ```
+ * <Button
+ *      name="submit"
+ *      width={100}
+ *      type="warning"
+ *      round={3}
+ *      caption="Update"
+ * />
+ * ```
+ */
 const Button = props => {
     const {
         name,
@@ -87,7 +99,7 @@ Button.propTypes = {
     type: PropType.oneOf(setting.componentTypes).isRequired,
     round: PropType.oneOf([0,3,5,20]),
     width: PropType.number,
-    heights: PropType.number,
+    height: PropType.number,
     data: PropType.object,
     userStyle: PropType.object,
     userClass: PropType.array,
@@ -95,13 +107,16 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-    type: 'default',
+    name: "button_name",
+    caption: "Button",
+    type: "default",
     round: 0,
+    width: "100%",
     height: 35,
     data: {},
     userStyle: {},
     userClass: [],
-    onClick: () => { console.log("Clicked"); }
+    onClick: () => { console.log("Button is Clicked"); }
 };
 
 export default Button;

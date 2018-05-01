@@ -1,0 +1,87 @@
+@import "../variables";
+
+$tooltipBackground: rgba(0,0,0,0.9);
+
+.Tooltip{
+    position:relative;
+    display: inline-block;
+    cursor: default;
+
+    &.Top .TextTooltip {
+        top:-25px;
+    }
+
+    &.Bottom .TextTooltip {
+        bottom:-29px;
+        span {
+            &:after {
+                border-top-color: transparent;
+                border-bottom-color: $tooltipBackground;
+                top: -12px;
+            }
+        }
+    }
+
+    &.Right .TextTooltip {
+        right: -170px;
+        left: auto;
+        span {
+            &:after {
+                border-top-color: transparent;
+                border-right-color: $tooltipBackground;
+                left: -6px;
+                top: 50%;
+                margin-top: -6px;
+            }
+        }
+    }
+
+    &.Left .TextTooltip {
+        left: -65px;
+        span {
+            &:after {
+                border-top-color: transparent;
+                border-left-color: $tooltipBackground;
+                top: 50%;
+                margin-top: -6px;
+                left: auto;
+                right: -12px;
+            }
+        }
+    }
+
+    .TextTooltip{
+        pointer-events: none;
+        position:absolute;
+        z-index:9999;
+        left:50%;
+        opacity:0;
+
+        span{
+            display:block;
+            white-space:nowrap;
+            position:relative;
+            background: $tooltipBackground;
+            border-radius: 3px;
+            padding:0 8px;
+            left:-50%;
+            font-size:14px;
+            color:#fff;
+            &:after {
+                top: 100%;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                border-top-color: $tooltipBackground;
+                border-width: 6px;
+                left: 50%;
+                margin-left: -6px;
+            }
+        }
+    }
+    &:hover span{
+        opacity:1;
+    }
+}

@@ -7,7 +7,8 @@ import {
     Button,
     Progress,
     SwitchButton,
-    Slider
+    Slider,
+    Tooltips,
 } from './components/UI/';
 
 class App extends Component {
@@ -208,6 +209,39 @@ class App extends Component {
 
                     <div className="col-4">
                         <CaptionPanel caption="Navigation Bar">
+                        </CaptionPanel>
+                    </div>
+                </div>
+
+                <div className="row">
+
+                    <div className="col-4">
+                        <CaptionPanel caption="ToolTips">
+
+                            <Tooltips caption="This is the text">
+                                <div>Top</div>
+                            </Tooltips><br/>
+
+                            <Tooltips
+                                caption="This is the text"
+                                position="right"
+                            >
+                                <div>Right</div>
+                            </Tooltips><br/>
+
+                            <Tooltips
+                                caption="This is the text"
+                                position="bottom"
+                            >
+                                <div>Bottom</div>
+                            </Tooltips><br/>
+
+                            <Tooltips
+                                caption="This is the text"
+                                position="left"
+                            >
+                                <div>Left</div>
+                            </Tooltips><br/>
                         </CaptionPanel>
                     </div>
                 </div>

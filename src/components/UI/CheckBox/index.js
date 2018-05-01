@@ -14,7 +14,7 @@ import Input from '../Input/';
  *      data={{'test':10}}
  *      checked
  *      captionPos="before"
- *      style={
+ *      checkStyle={
  *          {
  *              box: { width: '200px' },
  *              caption: { color: 'red' },
@@ -42,7 +42,7 @@ const CheckBox = props => {
         userClass,
         onClick,
         onChange,
-        style,
+        checkStyle,
     } = props;
 
     const getInput = (node) => {
@@ -89,7 +89,7 @@ const CheckBox = props => {
     }
 
     const INPUT = (
-        <div className={styleCheckBox.join(' ')} style={style.box}>
+        <div className={styleCheckBox.join(' ')} style={checkStyle.box}>
             <Input
                 type="checkbox"
                 extraAttribute={extraAttribute}
@@ -98,10 +98,10 @@ const CheckBox = props => {
                 input={getInput}
                 data={data}
             />
-            <i className="fas fa-check" style={style.tick}/>
+            <i className="fas fa-check" style={checkStyle.tick}/>
         </div>
     );
-    const LABEL = <span className={Classes.Label} style={style.caption}>{props.children}</span>;
+    const LABEL = <span className={Classes.Label} style={checkStyle.caption}>{props.children}</span>;
 
     return (
         <label className={styleComponent.join(' ')} style={userStyle}>
@@ -121,7 +121,7 @@ CheckBox.propTypes = {
     disabled: PropType.bool,
     readOnly: PropType.bool,
     captionPos: PropType.oneOf(['before', 'none', 'after']),
-    style: PropType.object,
+    checkStyle: PropType.object,
     userStyle: PropType.object,
     userClass: PropType.array,
     onChange: PropType.func,
@@ -129,12 +129,19 @@ CheckBox.propTypes = {
 };
 
 CheckBox.defaultProps = {
+    id: "",
+    name: "",
+    value: "",
+    data: {},
+    checked: false,
+    disabled: false,
+    readOnly: false,
     captionPos: 'after',
-    style: { box:{} , tick: {} , caption: {} },
+    checkStyle: { box:{} , tick: {} , caption: {} },
     userStyle: {},
     userClass: [],
-    onClick: () => console.log("CheckBox is clicked"),
     onChange: () => console.log("CheckBox is changed"),
+    onClick: () => console.log("CheckBox is clicked"),
 };
 
 export default CheckBox;

@@ -5,6 +5,7 @@ import Button from './Button/';
 import Progress from './Progress/';
 import SwitchButton from './SwitchButton/';
 import Slider from './Slider/';
+import Tooltips from './Tooltips/';
 
 export {
     CheckBox,
@@ -13,5 +14,6 @@ export {
     Button,
     Progress,
     SwitchButton,
-    Slider
+    Slider,
+    Tooltips
 }
