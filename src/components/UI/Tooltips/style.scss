@@ -8,7 +8,7 @@ $tooltipBackground: rgba(0,0,0,0.9);
     cursor: default;
 
     &.Top .TextTooltip {
-        top:-25px;
+        top:-30px;
     }
 
     &.Bottom .TextTooltip {
@@ -63,10 +63,10 @@ $tooltipBackground: rgba(0,0,0,0.9);
             position:relative;
             background: $tooltipBackground;
             border-radius: 3px;
-            padding:0 8px;
             left:-50%;
             font-size:14px;
             color:#fff;
+            padding: 3px 10px;
             &:after {
                 top: 100%;
                 border: solid transparent;
