@@ -163,6 +163,24 @@ class App extends Component {
 
                     <div className="col-4">
                         <CaptionPanel caption="Icon Button">
+                            <Button
+                                icon="user"
+                                name="submit"
+                                type="info"
+                                round={3}
+                                width={30}
+                                height={30}
+                                userStyle={{display: "inline-block", marginRight: "5px"}}
+                            />
+                            <Button
+                                icon="lock"
+                                name="submit"
+                                type="warning"
+                                round={3}
+                                width={30}
+                                height={30}
+                                userStyle={{display: "inline-block", marginRight: "5px"}}
+                            />
                         </CaptionPanel>
                     </div>
 

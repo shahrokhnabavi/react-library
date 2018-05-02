@@ -8,11 +8,19 @@ import * as setting from '../constants';
  * Usage Example:
  * ```
  * <Button
+ *      icon="user"
  *      name="submit"
- *      width={100}
- *      type="warning"
+ *      type="info"
+ *      caption="Button"
  *      round={3}
- *      caption="Update"
+ *      width={30}
+ *      height={30}
+ *      userStyle={{}}
+ *      userClass={[]}
+ *      data={{
+ *          label: "some name"
+ *      }}
+ *      onClick={ () => { alert('HOOOORAAA'); }}
  * />
  * ```
  */
@@ -24,6 +32,7 @@ const Button = props => {
         round,
         width,
         height,
+        icon,
         userStyle,
         userClass,
         data,
@@ -37,7 +46,7 @@ const Button = props => {
 
     const inlineStyle = {
         ...userStyle,
-        width: width + 'px',
+        width: width ? width + 'px' : '100%',
         height: height + 'px'
     };
 
@@ -77,6 +86,11 @@ const Button = props => {
             cls.push(Classes.Default);
     }
 
+    let fontIcon = '';
+    if( icon ){
+        fontIcon = <span className={"fa fa-" + icon}/>
+    }
+
     return (
         <button
             className={cls.join(' ')}
@@ -88,7 +102,7 @@ const Button = props => {
             onMouseUp={ e => e.target.classList.remove( Classes.Pressed ) }
             {...dataProps}
         >
-            {caption}
+            {fontIcon}{caption}
         </button>
     );
 };
@@ -100,6 +114,7 @@ Button.propTypes = {
     round: PropType.oneOf([0,3,5,20]),
     width: PropType.number,
     height: PropType.number,
+    icon: PropType.string,
     data: PropType.object,
     userStyle: PropType.object,
     userClass: PropType.array,
@@ -108,11 +123,12 @@ Button.propTypes = {
 
 Button.defaultProps = {
     name: "button_name",
-    caption: "Button",
+    caption: "",
     type: "default",
     round: 0,
-    width: "100%",
+    width: 0,
     height: 35,
+    icon: '',
     data: {},
     userStyle: {},
     userClass: [],
