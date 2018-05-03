@@ -1,5 +1,12 @@
 # react-library
+
 - Button
-- TextInput
-- Overlay
 - Checkbox
+- Input
+- Overlay
+- ProgressBar
+- RangeSlider
+- Slider
+- SwitchButton
+- TextInput
+- Tooltips

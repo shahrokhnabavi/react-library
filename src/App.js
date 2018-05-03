@@ -221,7 +221,16 @@ class App extends Component {
 
                     <div className="col-4">
                         <CaptionPanel caption="Range Slider">
-                            <RangeSlider />
+                            <RangeSlider
+                                name="price"
+                                min={200}
+                                max={540}
+                                minDefaultValue={250}
+                                maxDefaultValue={300}
+                                userStyle={{}}
+                                userClass={[]}
+                                onChanged={(min, max) => console.log("Min: " + min + ", Max:" + max)}
+                        />
                         </CaptionPanel>
                     </div>
 

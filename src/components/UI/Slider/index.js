@@ -100,7 +100,7 @@ Slider.propTypes = {
 Slider.defaultProps = {
     min: 0,
     max: 100,
-    value: 50,
+    value: 0,
     isPercent: true,
     userStyle: {},
     userClass: [],
