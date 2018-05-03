@@ -20,7 +20,7 @@ import Input from '../Input/';
  */
 const Slider = props => {
     let input = null,
-        drag = false;
+        hdl = false;
 
     const {
         name,
@@ -35,17 +35,18 @@ const Slider = props => {
 
     const getInput = (node) => {
         input = node;
-    };
+    }
 
-    const move = (e) => {
+    window.addEventListener('mouseup', () => { hdl = null });
+    window.addEventListener('mousemove', e => {
         e.preventDefault();
-        const el = e.currentTarget,
-            parent = el.parentNode;
-        if ( drag ) {
-            const position = parent.getBoundingClientRect(),
-                  width = Math.round(el.offsetWidth/2),
-                  barMax = parent.clientWidth - el.offsetWidth,
-                  barMin = Math.floor(position.left);
+        if ( hdl ) {
+            const el = hdl,
+                parent = el.parentNode,
+                position = parent.getBoundingClientRect(),
+                width = Math.round(el.offsetWidth/2),
+                barMax = parent.clientWidth - el.offsetWidth,
+                barMin = Math.floor(position.left);
 
             let left = e.clientX - barMin - width;
             if( left < 0 )
@@ -62,12 +63,10 @@ const Slider = props => {
             input.value = isPercent ? percent : value;
             onChanged(percent, value);
         }
-    };
+    });
 
-    window.addEventListener('mouseup', () => { drag = false});
-
-    const down = () => {
-        drag = true;
+    const down = e => {
+        hdl = e.currentTarget;
     };
 
     const cls = [...userClass, Classes.Slider];
@@ -76,7 +75,6 @@ const Slider = props => {
     return (
         <div className={cls.join(' ')} style={style}>
             <div className={Classes.Handler}
-                 onMouseMove={move}
                  onMouseDown={down}
             />
             <Input

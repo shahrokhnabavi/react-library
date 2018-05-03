@@ -9,6 +9,7 @@ import {
     SwitchButton,
     Slider,
     Tooltips,
+    RangeSlider,
 } from './components/UI/';
 
 class App extends Component {
@@ -170,7 +171,7 @@ class App extends Component {
                                 round={3}
                                 width={30}
                                 height={30}
-                                userStyle={{display: "inline-block", marginRight: "5px"}}
+                                userStyle={{display: "inline-block", marginRight: "3px"}}
                             />
                             <Button
                                 icon="lock"
@@ -179,13 +180,48 @@ class App extends Component {
                                 round={3}
                                 width={30}
                                 height={30}
-                                userStyle={{display: "inline-block", marginRight: "5px"}}
+                                userStyle={{display: "inline-block", marginRight: "3px"}}
+                            />
+                            <Button
+                                icon="heart"
+                                name="submit"
+                                type="primary"
+                                round={5}
+                                width={30}
+                                height={30}
+                                userStyle={{display: "inline-block", marginRight: "3px"}}
+                            />
+                            <Button
+                                icon="eye"
+                                name="submit"
+                                type="success"
+                                width={30}
+                                height={30}
+                                userStyle={{display: "inline-block", marginRight: "3px"}}
+                            />
+                            <Button
+                                icon="rocket"
+                                name="submit"
+                                type="danger"
+                                round={20}
+                                width={30}
+                                height={30}
+                                userStyle={{display: "inline-block", marginRight: "3px"}}
+                            />
+                            <Button
+                                icon="eye"
+                                name="submit"
+                                type="default"
+                                width={30}
+                                height={30}
+                                userStyle={{display: "inline-block"}}
                             />
                         </CaptionPanel>
                     </div>
 
                     <div className="col-4">
                         <CaptionPanel caption="Range Slider">
+                            <RangeSlider />
                         </CaptionPanel>
                     </div>
 

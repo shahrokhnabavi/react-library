@@ -88,6 +88,7 @@ const Button = props => {
 
     let fontIcon = '';
     if( icon ){
+        cls.push( Classes.Icon );
         fontIcon = <span className={"fa fa-" + icon}/>
     }
 
@@ -98,8 +99,8 @@ const Button = props => {
             style={inlineStyle}
             data={data}
             onClick={onClick}
-            onMouseDown={ e => e.target.classList.add( Classes.Pressed ) }
-            onMouseUp={ e => e.target.classList.remove( Classes.Pressed ) }
+            onMouseDown={ e => e.currentTarget.classList.add( Classes.Pressed ) }
+            onMouseUp={ e => e.currentTarget.classList.remove( Classes.Pressed ) }
             {...dataProps}
         >
             {fontIcon}{caption}
