@@ -7,6 +7,7 @@ import SwitchButton from './SwitchButton/';
 import Slider from './Slider/';
 import Tooltips from './Tooltips/';
 import RangeSlider from './RangeSlider/';
+import RadioButton from './RadioButton/';
 
 export {
     CheckBox,
@@ -18,4 +19,5 @@ export {
     Slider,
     Tooltips,
     RangeSlider,
+    RadioButton,
 }

@@ -10,6 +10,7 @@ import {
     Slider,
     Tooltips,
     RangeSlider,
+    RadioButton,
 } from './components/UI/';
 
 class App extends Component {
@@ -236,6 +237,45 @@ class App extends Component {
 
                     <div className="col-4">
                         <CaptionPanel caption="Radio Button">
+                            <div>
+                                <span>Permission:</span>
+                                <RadioButton
+                                    name="ex1"
+                                    value="1"
+                                    captionPos="after"
+                                    checked={false}
+                                    disabled={false}
+                                    readOnly={false}
+                                    data={{}}
+                                    userClass={[]}
+                                >Access</RadioButton>
+
+                                <RadioButton
+                                    name="ex1"
+                                    value="2"
+                                    checked={false}
+                                >Don't Access</RadioButton>
+
+                                <RadioButton
+                                    name="ex1"
+                                    value="3"
+                                    checked={true}
+                                >Maybe Access</RadioButton>
+                            </div>
+                            <br/>
+                            <div>
+                                <span>Gender:</span>
+                                <RadioButton
+                                    name="ex2"
+                                    value="1"
+                                    checked
+                                >Male</RadioButton>
+
+                                <RadioButton
+                                    name="ex2"
+                                    value="0"
+                                >Female</RadioButton>
+                            </div>
                         </CaptionPanel>
                     </div>
                 </div>
