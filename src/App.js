@@ -5,12 +5,13 @@ import {
     CheckBox,
     TextInput,
     Button,
-    Progress,
+    ProgressBar,
     SwitchButton,
     Slider,
     Tooltips,
     RangeSlider,
     RadioButton,
+    SelectBox,
 } from './components/UI/';
 
 class App extends Component {
@@ -27,7 +28,6 @@ class App extends Component {
                     </div>
                 </div>
                 <div className="row">
-
 
                     <div className="col-4">
                         <CaptionPanel caption="CheckBox">
@@ -114,18 +114,20 @@ class App extends Component {
 
                         </CaptionPanel>
                     </div>
+
                 </div>
                 <div className="row">
+
                     <div className="col-4">
                         <CaptionPanel caption="Progress Bars">
-                            <Progress percent={20} type="primary"/>
-                            <Progress percent={2}/>
-                            <Progress percent={80} striped active/>
-                            <Progress percent={30} striped active type="primary"/>
-                            <Progress percent={50} striped active type="warning"/>
-                            <Progress percent={42} striped active type="danger"/>
-                            <Progress percent={90} striped active type="success"/>
-                            <Progress percent={14} striped active type="info"/>
+                            <ProgressBar percent={20} type="primary"/>
+                            <ProgressBar percent={2}/>
+                            <ProgressBar percent={80} striped active/>
+                            <ProgressBar percent={30} striped active type="primary"/>
+                            <ProgressBar percent={50} striped active type="warning"/>
+                            <ProgressBar percent={42} striped active type="danger"/>
+                            <ProgressBar percent={90} striped active type="success"/>
+                            <ProgressBar percent={14} striped active type="info"/>
                         </CaptionPanel>
                     </div>
 
@@ -153,12 +155,43 @@ class App extends Component {
                     </div>
 
                     <div className="col-4">
-                        <CaptionPanel caption="Slider">
-                            <Slider name="hora" userStyle={{marginBottom: '15px'}} />
-                            <Slider name="hora" min={200} max={2000} userStyle={{marginBottom: '15px'}} />
-                            <Slider name="hora" userStyle={{marginBottom: '15px'}}/>
+                        <CaptionPanel caption="Radio Button">
+                            <div>
+                                <span>Permission:</span>
+                                <RadioButton
+                                    name="ex1"
+                                    value="1"
+                                    captionPos="after"
+                                >Access</RadioButton>
+
+                                <RadioButton
+                                    name="ex1"
+                                    value="2"
+                                >Don't Access</RadioButton>
+
+                                <RadioButton
+                                    name="ex1"
+                                    value="3"
+                                    checked
+                                    userStyle={{ marginBottom: '10px'}}
+                                >Maybe Access</RadioButton>
+                            </div>
+                            <div>
+                                <span>Gender:</span>
+                                <RadioButton
+                                    name="ex2"
+                                    value="1"
+                                    checked
+                                >Male</RadioButton>
+
+                                <RadioButton
+                                    name="ex2"
+                                    value="0"
+                                >Female</RadioButton>
+                            </div>
                         </CaptionPanel>
                     </div>
+
                 </div>
 
                 <div className="row">
@@ -236,54 +269,20 @@ class App extends Component {
                     </div>
 
                     <div className="col-4">
-                        <CaptionPanel caption="Radio Button">
-                            <div>
-                                <span>Permission:</span>
-                                <RadioButton
-                                    name="ex1"
-                                    value="1"
-                                    captionPos="after"
-                                    checked={false}
-                                    disabled={false}
-                                    readOnly={false}
-                                    data={{}}
-                                    userClass={[]}
-                                >Access</RadioButton>
-
-                                <RadioButton
-                                    name="ex1"
-                                    value="2"
-                                    checked={false}
-                                >Don't Access</RadioButton>
-
-                                <RadioButton
-                                    name="ex1"
-                                    value="3"
-                                    checked={true}
-                                >Maybe Access</RadioButton>
-                            </div>
-                            <br/>
-                            <div>
-                                <span>Gender:</span>
-                                <RadioButton
-                                    name="ex2"
-                                    value="1"
-                                    checked
-                                >Male</RadioButton>
-
-                                <RadioButton
-                                    name="ex2"
-                                    value="0"
-                                >Female</RadioButton>
-                            </div>
+                        <CaptionPanel caption="Slider">
+                            <Slider name="hora" userStyle={{marginBottom: '15px'}} />
+                            <Slider name="hora" min={200} max={2000} userStyle={{marginBottom: '15px'}} />
+                            <Slider name="hora" userStyle={{marginBottom: '15px'}}/>
                         </CaptionPanel>
                     </div>
+
                 </div>
 
                 <div className="row">
 
                     <div className="col-4">
                         <CaptionPanel caption="Select Box">
+                            <SelectBox name="sel" />
                         </CaptionPanel>
                     </div>
 

@@ -8,21 +8,16 @@ import Input from '../Input/';
  * Usage Example:
  * ```
  * <RadioButton
- *      id="input-id"
  *      name="inputName"
  *      value="12"
+ *      checked={false}
+ *      disabled={false}
+ *      readOnly={false}
  *      data={{'test':10}}
- *      checked
  *      captionPos="before"
- *      checkStyle={
- *          {
- *              box: { width: '200px' },
- *              caption: { color: 'red' },
- *              tick: { top: '20px' }
- *          }
- *      }
- *      onChange={ e => {console.log("From App Change: " + e.element.value);} }
- *      onClick={ e => {console.log("From App Clicked");} }
+ *      userClass={[]}
+ *      userStyle={{ width: '200px', color: 'red', top: '20px'}}
+ *      onClick={ value => {console.log("From App Clicked");} }
  *  >I agree</RadioButton>
  * ```
  */
@@ -38,10 +33,8 @@ const RadioButton = props => {
         readOnly,
         data,
         userClass,
-
         userStyle,
         onClick,
-        onChange,
     } = props;
 
     const getInput = (node) => {
@@ -61,7 +54,9 @@ const RadioButton = props => {
             } else {
                 item.classList.remove( Classes.Checked );
             }
+            return null;
         });
+        onClick( input.value );
     };
 
     const componentClass = [...userClass, Classes.RadioButton],
@@ -89,8 +84,6 @@ const RadioButton = props => {
             <Input
                 type="radio"
                 extraAttribute={extraAttribute}
-                // handleClick={onClick}
-                // handleChange={checkBoxChange}
                 input={getInput}
                 data={data}
             />
@@ -100,7 +93,7 @@ const RadioButton = props => {
     const LABEL = <span className={Classes.Label}>{props.children}</span>;
 
     return (
-        <div className={componentClass.join(' ')} onClick={checkBoxChange}>
+        <div className={componentClass.join(' ')} onClick={checkBoxChange} style={{...userStyle}}>
             {captionPos === 'before' ? LABEL : null}
             {INPUT}
             {captionPos === 'after' ? LABEL : null}
@@ -109,7 +102,6 @@ const RadioButton = props => {
 };
 
 RadioButton.propTypes = {
-    id: PropType.string,
     name: PropType.string.isRequired,
     value: PropType.any,
     data: PropType.object,
@@ -119,12 +111,10 @@ RadioButton.propTypes = {
     captionPos: PropType.oneOf(['before', 'none', 'after']),
     userStyle: PropType.object,
     userClass: PropType.array,
-    onChange: PropType.func,
     onClick: PropType.func,
 };
 
 RadioButton.defaultProps = {
-    id: "",
     name: "",
     value: "",
     data: {},
@@ -134,8 +124,7 @@ RadioButton.defaultProps = {
     captionPos: 'after',
     userStyle: {},
     userClass: [],
-    onChange: () => console.log("RadioButton is changed"),
-    onClick: () => console.log("RadioButton is clicked"),
+    onClick: value => console.log("RadioButton with value " + value + " is clicked"),
 };
 
 export default RadioButton;
