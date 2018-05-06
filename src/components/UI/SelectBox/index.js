@@ -14,105 +14,134 @@ import Input from '../Input/';
 const SelectBox = props => {
     const {
         name,
-        maxLength,
-        placeholder,
-        label,
-        style,
-        data,
+        caption,
+        options,
         userClass,
         userStyle,
-        onBlur,
-        onFocus,
         onClick,
         onChange,
     } = props;
 
-    const focusHandler = event => {
-        const input = event.target,
-            label = input.previousElementSibling;
+    const clickHdl = (event, id) => {
+        const el = event.currentTarget;
 
-        if (input.value === '') {
-            label.classList.add( Classes.Effect );
+        if( el.classList.contains(Classes.activeselectholder) ) {
+            el.classList.remove( Classes.activeselectholder );
         }
-        onFocus();
-    };
-
-    const blurHandler = event => {
-        const input = event.target,
-            label = input.previousElementSibling;
-
-        input.value = input.value.trim();
-        if (input.value === '') {
-            label.classList.remove( Classes.Effect );
-        } else {
-            label.classList.add( Classes.Effect );
+        else {
+            el.classList.add( Classes.activeselectholder );
         }
-        onBlur();
+
+        onClick();
     };
 
-    const getInput = (node) => {
+    const itemClickHdl = (event, key, label) => {
+        const el = event.currentTarget,
+            desc = el.parentNode.parentNode.childNodes[1],
+            select = el.parentNode.parentNode.childNodes[0];
+
+        desc.innerHTML = label;
+        select.selectedIndex = key;
+        onChange(select.value);
     };
 
-    const extraAttribute = {
-        id: 'id-' + name,
-        name: name,
-        autoComplete: "off",
-        spellCheck: "false",
-        maxLength: maxLength,
-        placeholder: placeholder,
-    };
+    const cls = [...userClass, Classes.selectholder];
 
-    const tt = (
-        <div className={[...userClass, Classes.SelectBox].join(' ')} style={userStyle}>
-            <label htmlFor={'id-' + name}>{label}</label>
-            <Input
-                type="text"
-                input={getInput}
-                style={style}
-                extraAttribute={extraAttribute}
-                data={data}
-                handleClick={onClick}
-                handleChange={onChange}
-                handleFocus={focusHandler}
-                handleBlur={blurHandler}
-            />
-        </div>
-    );
+    let list = [],
+        selectOptions = [];
+    options.forEach( (item, key) => {
+        list.push(<div onClick={e => itemClickHdl(e, key, item.label)}><span>{item.label}</span></div>);
+        selectOptions.push(<option value={item.value}>{item.label}</option>);
+    });
 
     return (
-        <select>
-            <option value="0">hello</option>
-        </select>
+        <div className={cls.join(' ')} onClick={clickHdl}  style={userStyle}>
+            <select name={name}>{selectOptions}</select>
+            <span className={Classes.desc}>{caption}</span>
+            <span className={Classes.pulldown}/>
+            <div className={Classes.selectdropdown}>{list}</div>
+        </div>
     );
 };
 
 SelectBox.propTypes = {
     name: PropType.string.isRequired,
-    maxLength: PropType.number,
-    label: PropType.string,
-    placeholder: PropType.string,
-    data: PropType.object,
-    style: PropType.object,
+    caption: PropType.string,
+    options: PropType.array,
     userStyle: PropType.object,
     userClass: PropType.array,
-    onBlur: PropType.func,
-    onFocus: PropType.func,
     onClick: PropType.func,
     onChange: PropType.func,
 };
 
 SelectBox.defaultProps = {
-    label: "Email Address",
-    placeholder: "e.g. jan.doe@email.com",
-    maxLength: 64,
-    data: {},
-    style: {},
+    name: "input-name",
+    caption: "Select One",
+    options: [],
     userStyle: {},
     userClass: [],
-    onBlur: () => { console.log("On Blur triggered"); },
-    onFocus: () => { console.log("On Focus triggered"); },
     onClick: () => { console.log("On click triggered"); },
-    onChange: () => { console.log("On change triggered"); },
+    onChange: (value) => { console.log("On change triggered: " + value); },
 };
 
 export default SelectBox;
+
+
+
+/*
+/blucube/pen/ytwjx?editors=0010
+// set up select boxes
+$('.selectholder').each(function(){
+    // on click, show dropdown
+    $(this).click(function(){
+        if($(this).hasClass('activeselectholder')) {
+            // roll up roll up
+            $(this).children('.selectdropdown').slideUp(200);
+            $(this).removeClass('activeselectholder');
+            // change span back to selected option text
+            if($(this).children('select').val() != '0') {
+                $(this).children('.desc').fadeOut(100, function(){
+                    $(this).text($(this).siblings("select").val());
+                    $(this).fadeIn(100);
+                });
+            }
+        }
+        else {
+            // if there are any other open dropdowns, close 'em
+            $('.activeselectholder').each(function(){
+                $(this).children('.selectdropdown').slideUp(200);
+                // change span back to selected option text
+                if($(this).children('select').val() != '0') {
+                    $(this).children('.desc').fadeOut(100, function(){
+                        $(this).text($(this).siblings("select").val());
+                        $(this).fadeIn(100);
+                    });
+                }
+                $(this).removeClass('activeselectholder');
+            });
+            // roll down
+            $(this).children('.selectdropdown').slideDown(200);
+            $(this).addClass('activeselectholder');
+            // change span to show select box title while open
+            if($(this).children('select').val() != '0') {
+                $(this).children('.desc').fadeOut(100, function(){
+                    $(this).text($(this).siblings("select").children("option[value=0]").text());
+                    $(this).fadeIn(100);
+                });
+            }
+        }
+    });
+});
+
+// select dropdown click action
+$('.selectholder .selectdropdown span').click(function(){
+    $(this).siblings().removeClass('active');
+    $(this).addClass('active');
+    var value = $(this).text();
+    $(this).parent().siblings('select').val(value);
+    $(this).parent().siblings('.desc').fadeOut(100, function(){
+        $(this).text(value);
+        $(this).fadeIn(100);
+    });
+});
+ */

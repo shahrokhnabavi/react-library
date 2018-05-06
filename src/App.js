@@ -282,7 +282,13 @@ class App extends Component {
 
                     <div className="col-4">
                         <CaptionPanel caption="Select Box">
-                            <SelectBox name="sel" />
+                            <SelectBox
+                                name="sel"
+                                caption="Select one"
+                                options={[{value: 2,label: 'test01'},{value: 1,label: 'test02'}]}
+                                userStyle={{}}
+                                userClass={[]}
+                            />
                         </CaptionPanel>
                     </div>
 
